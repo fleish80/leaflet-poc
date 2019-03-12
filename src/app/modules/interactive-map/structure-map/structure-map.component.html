@@ -1,0 +1,8 @@
+<div class="map"
+     leaflet
+     leafletDraw
+     [leafletOptions]="options"
+     [leafletDrawOptions]="drawConstructorOptions"
+     (leafletMapReady)="onMapReady($event)"
+     (leafletClick)="onMapClick($event)">
+</div>

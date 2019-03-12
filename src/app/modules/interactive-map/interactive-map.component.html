@@ -1,0 +1,15 @@
+
+<mv-sidebar [map]="map" *ngIf="!!map"></mv-sidebar>
+<!--<section class="map-wrapper" >-->
+
+  <mv-structure-map *ngIf="structureMap$ | async as structureMap; else loading"
+    [structureMap]="structureMap"
+    (mapReady)="onMapReady($event)"
+    (mapClick)="mapClick()"
+  ></mv-structure-map>
+<!--</section>-->
+
+<ng-template #loading>
+  Loading ...
+</ng-template>
+

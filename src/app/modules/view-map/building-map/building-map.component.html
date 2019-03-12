@@ -1,0 +1,7 @@
+<div class="map"
+     leaflet
+     leafletLayers
+     [leafletOptions]="leafletData?.mapOptions"
+     [leafletLayers]="leafletData?.layers"
+     (leafletMapReady)="onMapReady($event)">
+</div>
