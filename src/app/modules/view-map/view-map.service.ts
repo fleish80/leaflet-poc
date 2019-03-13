@@ -61,7 +61,7 @@ export class ViewMapService {
   }
 
   private generateImageItems(): ImageItem[] {
-    return Array.from(Array(100).keys()).map(() => {
+    return Array.from(Array(10).keys()).map(() => {
       const randomY = Math.random() * width;
       const randomX = Math.random() * height;
       const point: PointData = {x: randomX, y: randomY};

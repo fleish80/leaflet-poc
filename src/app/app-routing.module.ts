@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'view-map',
     loadChildren: './modules/view-map/view-map.module#ViewMapModule',
   },
+  {
+    path: 'assign-map',
+    loadChildren: './modules/assign-map/assign-map.module#AssignMapModule',
+  },
 ];
 
 @NgModule({
