@@ -1,8 +1,10 @@
 :host {
   background-color: #f9f9f9;
   display: block;
-  height: calc(100% - 20px);
+  height: 100%;
   padding: 10px;
+  border-radius: 3px;
+  border: solid 1px #d7d7d7;
 }
 
 .cdk-drop-list {
