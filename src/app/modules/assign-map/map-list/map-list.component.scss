@@ -1,0 +1,23 @@
+:host {
+  background-color: #f9f9f9;
+  display: block;
+  height: calc(100% - 20px);
+  padding: 10px;
+}
+
+.cdk-drop-list {
+
+}
+
+.cdk-drag {
+  border: solid 1px #e0e0e0;
+  background-color: #f8feff;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 5px;
+  margin-bottom: 10px;
+  cursor: all-scroll;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

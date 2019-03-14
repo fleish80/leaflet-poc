@@ -1,10 +1,12 @@
 .nav {
   padding: 10px;
+  background-color: #000000;
 }
 
 .nav__link {
   margin: 0 10px;
   text-decoration: none;
+  color: #ffffff;
   &:first-child {
     margin-left: 0;
   }

@@ -5,14 +5,15 @@ import {InteractiveMapComponent} from './interactive-map.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {StructureMapComponent} from './structure-map/structure-map.component';
 import {InteractiveMapService} from './interactive-map.service';
-import {MvLeafletModule} from '../../shared/mv-leaflet/mv-leaflet.module';
+import {MvLeafletModule} from '../../shared/mv-leaflet.module';
+import {SharedModule} from '../../shared/shared.module';
 
 @NgModule({
   declarations: [InteractiveMapComponent, SidebarComponent, StructureMapComponent],
   imports: [
-    CommonModule,
+    SharedModule,
     InteractiveMapRoutingModule,
-    MvLeafletModule
+    MvLeafletModule,
 ],
   providers: [InteractiveMapService]
 })

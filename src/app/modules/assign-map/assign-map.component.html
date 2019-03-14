@@ -1,3 +1,7 @@
-<p>
-  assign-map works!
-</p>
+<section class="wrapper" *ngIf="assignMap$ | async as assignMap; else loading">
+  <mv-map-list [wingMapItems]="assignMap.availableMaps"></mv-map-list>
+</section>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
