@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  height: calc(100% - 39.2px);
+}
+
 .wrapper {
-  height: calc(100% - 40px);
+  height: 100%;
 }
