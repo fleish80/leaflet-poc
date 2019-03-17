@@ -1,12 +1,21 @@
+.sort-control-label {
+  font-size: 14px;
+}
+
 .mat-form-field {
   width: 100%;
   &::ng-deep {
     .mat-form-field-outline {
       background-color: #ffffff;
+      font-size: 14px;
+      //color: #d7d7d7;
     }
     //.mat-form-field-outline-start, .mat-form-field-outline-gap, .mat-form-field-outline-end {
     //  border: solid 1px #d7d7d7;
     //}
+    .mat-form-field-outline {
+      //color: green;
+    }
   }
 }
 
