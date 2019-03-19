@@ -1,11 +1,15 @@
 import {NgModule} from '@angular/core';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import {MatProgressSpinnerModule} from '@angular/material';
+import {MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSelectModule} from '@angular/material';
 
 @NgModule({
   declarations: [],
   imports: [],
-  exports: [DragDropModule, MatProgressSpinnerModule]
+  exports: [DragDropModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule]
 })
 export class MaterialModule {
 }

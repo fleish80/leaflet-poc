@@ -1,5 +1,8 @@
-import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {WingItem} from '../../../core/models/map/wing.item';
+import {SortingState} from './sorting-state.enum';
+import {FormControl} from '@angular/forms';
+import {SortingOptions} from './sorting-options.array';
 
 @Component({
   selector: 'mv-map-list',
@@ -10,10 +13,14 @@ import {WingItem} from '../../../core/models/map/wing.item';
 export class MapListComponent implements OnInit {
 
   @Input() wingMapItems: WingItem[];
+  sortCtrl: FormControl;
+  sortingState = SortingState;
+  sortingOptions = SortingOptions;
 
   constructor() { }
 
   ngOnInit() {
+    this.sortCtrl = new FormControl(SortingState.Hierarchy);
   }
 
 }

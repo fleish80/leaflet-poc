@@ -3,6 +3,23 @@
   height: calc(100% - 39.2px);
 }
 
-.wrapper {
+.assign-map {
   height: 100%;
+  display: flex;
+}
+
+$assign-map__wrapper-margin: 20px;
+
+.assign-map__wrapper {
+  background-color: #f9f9f9;
+  display: block;
+  height: calc(100% - (22px + 2 * #{$assign-map__wrapper-margin}));
+  padding: 10px;
+  border-radius: 3px;
+  border: solid 1px #d7d7d7;
+  flex: 1;
+  margin: $assign-map__wrapper-margin 0 $assign-map__wrapper-margin $assign-map__wrapper-margin;
+  &:last-child {
+    margin-right: $assign-map__wrapper-margin;
+  }
 }

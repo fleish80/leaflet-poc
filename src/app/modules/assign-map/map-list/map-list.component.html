@@ -1,3 +1,16 @@
+<mat-form-field appearance="outline">
+  <mat-label>Sort maps by:</mat-label>
+  <mat-select [formControl]="sortCtrl" >
+    <mat-option *ngFor="let sortingOption of sortingOptions" [value]="sortingOption.state">
+      {{ sortingOption.text }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
 <div cdkDropList [cdkDropListData]="wingMapItems">
-  <div *ngFor="let wingMapItem of wingMapItems" cdkDrag>{{wingMapItem?.mapName}}</div>
+  <div *ngFor="let wingMapItem of wingMapItems" cdkDrag tabindex="0">
+    <span class="cdk-drag__text">{{wingMapItem?.mapName}}</span>
+    <i class="cdk-drag__indicator-icon"></i>
+  </div>
 </div>
+
