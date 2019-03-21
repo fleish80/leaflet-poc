@@ -29,6 +29,12 @@
       "gatewayGroup": "Group2",
       "engineId": "17_1_0",
       "hierarchy": null
+    },
+    {
+      "mapName": "A MAP1",
+      "gatewayGroup": "Group2",
+      "engineId": "17_1_0",
+      "hierarchy": null
     }
   ]
 }
