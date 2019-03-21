@@ -7,14 +7,18 @@ import {MaterialModule} from '../../shared/material.module';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { BuildingListComponent } from './building-list/building-list.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { MapItemComponent } from './map-item/map-item.component';
 
 @NgModule({
-  declarations: [AssignMapComponent, MapListComponent, DragDropComponent, BuildingListComponent],
+  declarations: [AssignMapComponent, MapListComponent, DragDropComponent, BuildingListComponent, MapItemComponent],
   imports: [
     SharedModule,
     AssignMapRoutingModule,
     MaterialModule,
-    DragDropModule
-  ]
+    DragDropModule,
+    HttpClientModule
+  ],
+  providers: [HttpClient]
 })
 export class AssignMapModule { }

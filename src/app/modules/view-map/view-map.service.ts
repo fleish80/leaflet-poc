@@ -4,19 +4,19 @@ import {ViewMapModel} from './view-map.model';
 import {interval, Observable, of} from 'rxjs';
 import {map, startWith, switchMap} from 'rxjs/operators';
 import {ViewMapServerModel} from './view-map-server.model';
-import {ZoneItem} from '../../core/models/map/zone-item';
-import {PointData} from '../../core/models/map/point-data';
-import {MapData} from '../../core/models/map/map-data';
-import {ImageItem} from '../../core/models/map/image-item';
+import {ConstructionMap} from '../../core/models/map-details/construction.map';
+import {ZoneItem} from '../../core/models/items/zone.item';
+import {PointMap} from '../../core/models/map-details/point.map';
+import {ImageItem} from '../../core/models/items/image.item';
 
 
 const height = 2064;
 const width = 3180;
 
-const mapData: MapData = {
+const construction: ConstructionMap = {
   mapWidth: width,
   mapHeight: height,
-  mapImageURL: `${appSettingsConfig.IMAGES_PATH}/map-4.gif`
+  imageUrl: `${appSettingsConfig.IMAGES_PATH}/map-4.gif`
 };
 
 @Injectable()
@@ -30,7 +30,7 @@ export class ViewMapService {
       startWith(0),
       switchMap(() => {
         const serverData: ViewMapServerModel = {
-          mapData,
+          mapData: construction,
           items: [...this.generateZoneItems(), ...this.generateImageItems()]
         };
         return of<ViewMapServerModel>(serverData).pipe(
@@ -46,7 +46,7 @@ export class ViewMapService {
     return Array.from(Array(10).keys()).map(() => {
       const randomY = Math.random() * width;
       const randomX = Math.random() * height;
-      const points: PointData[] = [
+      const points: PointMap[] = [
         {x: randomX - 200, y: randomY},
         {x: randomX, y: randomY},
         {x: randomX, y: randomY + 200}
@@ -61,10 +61,10 @@ export class ViewMapService {
   }
 
   private generateImageItems(): ImageItem[] {
-    return Array.from(Array(5000).keys()).map(() => {
+    return Array.from(Array(10).keys()).map(() => {
       const randomY = Math.random() * width;
       const randomX = Math.random() * height;
-      const point: PointData = {x: randomX, y: randomY};
+      const point: PointMap = {x: randomX, y: randomY};
       return {
         id: 'fixed-0',
         imageLocation: point,

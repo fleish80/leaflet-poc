@@ -1,7 +1,7 @@
-import {MapData} from '../../core/models/map/map-data';
-import {Item} from '../../core/models/map/item';
+import {ConstructionMap} from '../../core/models/map-details/construction.map';
+import {Item} from '../../core/models/items/item';
 
 export interface ViewMapServerModel {
-  mapData: MapData;
+  mapData: ConstructionMap;
   items: Item[];
 }

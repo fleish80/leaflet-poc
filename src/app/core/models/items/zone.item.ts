@@ -1,8 +1,8 @@
 import {Item} from './item';
-import {PointData} from './point-data';
+import {PointMap} from '../map-details/point.map';
 
 
 export interface ZoneItem extends Item {
-  pointsOnMap: PointData[];
+  pointsOnMap: PointMap[];
   zoneName: string;
 }

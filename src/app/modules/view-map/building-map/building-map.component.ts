@@ -1,6 +1,6 @@
 import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
-import {LeafletData} from '../../../core/models/map/leaflet-data';
 import {Map} from 'leaflet';
+import {LeafletMap} from '../../../core/models/map-details/leaflet.map';
 
 @Component({
   selector: 'mv-building-map',
@@ -10,7 +10,7 @@ import {Map} from 'leaflet';
 })
 export class BuildingMapComponent implements OnInit {
 
-  @Input() leafletData: LeafletData;
+  @Input() leafletData: LeafletMap;
 
   constructor() { }
 

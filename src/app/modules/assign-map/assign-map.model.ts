@@ -1,5 +1,13 @@
-import {WingItem} from '../../core/models/map/wing.item';
+import {WingItem} from '../../core/models/items/wing.item';
 
-export interface AssignMap {
-  availableMaps: WingItem[];
+
+
+export class AssignMap {
+  // availableMaps: WingItem[];
+
+
+
+  constructor(building?: any, availableMaps?: WingItem[]) {
+
+  }
 }

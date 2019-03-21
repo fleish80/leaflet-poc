@@ -1,4 +1,3 @@
-import {ZoneItem} from '../models/map/zone-item';
 import {
   CRS,
   icon,
@@ -14,10 +13,12 @@ import {
   polygon,
   PolylineOptions
 } from 'leaflet';
-import {PointData} from '../models/map/point-data';
-import {ImageItem} from '../models/map/image-item';
-import {Item} from '../models/map/item';
-import {MapData} from '../models/map/map-data';
+import {Item} from '../models/items/item';
+import {PointMap} from '../models/map-details/point.map';
+import {ImageItem} from '../models/items/image.item';
+import {ZoneItem} from '../models/items/zone.item';
+import {ConstructionMap} from '../models/map-details/construction.map';
+
 
 /**
  * Converts items which arrives from servers to leaflet items, each method is defined as static
@@ -48,7 +49,7 @@ export class LeafletMethods {
    * @param options = leaflet polyline options
    */
   static convertZoneToPolygon(zoneItem: ZoneItem, options?: PolylineOptions): Polygon {
-    const points: LatLngTuple[] = zoneItem.pointsOnMap.map((pointData: PointData) =>
+    const points: LatLngTuple[] = zoneItem.pointsOnMap.map((pointData: PointMap) =>
       [pointData.x, pointData.y] as LatLngTuple);
     const polylineOptions: PolylineOptions = {
       color: zoneItem.itemBackground
@@ -80,9 +81,9 @@ export class LeafletMethods {
     return marketLeaflet;
   }
 
-  static convertMapToMapOptions(mapData: MapData): MapOptions {
-    const bounds: LatLngTuple[] = LeafletMethods.getMapbounds(mapData);
-    const io = imageOverlay(mapData.mapImageURL, bounds);
+  static convertMapToMapOptions(constructionMap: ConstructionMap): MapOptions {
+    const bounds: LatLngTuple[] = LeafletMethods.getMapBounds(constructionMap);
+    const io = imageOverlay(constructionMap.imageUrl, bounds);
     return {
       layers: [
         io
@@ -95,7 +96,7 @@ export class LeafletMethods {
     };
   }
 
-  static getMapbounds(mapData: MapData): LatLngTuple[] {
-    return [[0, 0], [mapData.mapHeight, mapData.mapWidth]];
+  static getMapBounds(constructionMap: ConstructionMap): LatLngTuple[] {
+    return [[0, 0], [constructionMap.mapHeight, constructionMap.mapWidth]];
   }
 }

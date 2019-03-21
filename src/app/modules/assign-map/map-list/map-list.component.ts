@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {WingItem} from '../../../core/models/map/wing.item';
 import {SortingState} from './sorting-state.enum';
 import {FormControl} from '@angular/forms';
 import {SortingOptions} from './sorting-options.array';
+import {WingItem} from '../../../core/models/items/wing.item';
 
 @Component({
   selector: 'mv-map-list',

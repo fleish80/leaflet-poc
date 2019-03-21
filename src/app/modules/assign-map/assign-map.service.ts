@@ -1,34 +1,22 @@
 import {Injectable} from '@angular/core';
 import {AssignMap} from './assign-map.model';
 import {Observable, of} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
-const assignMap: AssignMap = {
-  availableMaps: [
-    {
-      id: 'MAP_3',
-      mapName: 'Floor 5',
-    },
-    {
-      id: 'MAP_2',
-      mapName: 'Floor 6 HW'
-    },
-    {
-      id: 'MAP_1',
-      mapName: 'Floor 6 SW'
-    }
-  ]
-};
-
+const assignMapUrl = '/assets//mocks/assign-map/assign-map.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AssignMapService {
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   get(): Observable<AssignMap> {
-    return of(assignMap);
+    return this.http.get<AssignMap>(assignMapUrl).pipe(
+      map((data: any) => new AssignMap(data.building, data.availableMaps))
+    );
   }
 }

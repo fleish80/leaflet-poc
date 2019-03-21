@@ -1,9 +1,9 @@
 import {Item} from './item';
-import {PointData} from './point-data';
+import {PointMap} from '../map-details/point.map';
 
 export interface ImageItem extends Item {
   imageUrl: string;
-  imageLocation: PointData;
+  imageLocation: PointMap;
   width: number;
   height: number;
 }

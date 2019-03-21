@@ -1,0 +1,34 @@
+{
+  "building": {
+    "buldingName": "Building 1",
+    "id": "BUILDING_3",
+    "items": [
+    ]
+  },
+  "availableMaps": [
+    {
+      "mapName": "Floor 5",
+      "gatewayGroup": "Group1",
+      "engineId": "17_3_0",
+      "hierarchy": "Stanley R>IlanRamon2>Floor 5"
+    },
+    {
+      "mapName": "Floor 6 HW",
+      "gatewayGroup": "Group1",
+      "engineId": "17_2_0",
+      "hierarchy": "Stanley R>IlanRamon2>Floor 6 HW"
+    },
+    {
+      "mapName": "Floor 6 SW",
+      "gatewayGroup": "Group1",
+      "engineId": "17_1_0",
+      "hierarchy": "Stanley R>IlanRamon2>Floor 6 SW"
+    },
+    {
+      "mapName": "Prototype MAP1",
+      "gatewayGroup": "Group2",
+      "engineId": "17_1_0",
+      "hierarchy": null
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 <section class="map-wrapper" *ngIf="viewMapModel$ | async as viewMapModel; else loading">
-  <mv-building-map [leafletData]="viewMapModel.leafletData"></mv-building-map>
+  <mv-building-map [leafletData]="viewMapModel.leafletMap"></mv-building-map>
 </section>
 
 <ng-template #loading>
