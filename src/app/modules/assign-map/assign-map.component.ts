@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {AssignMap} from './assign-map.model';
+import {AssignMapModel} from './assign-map.model';
 import {AssignMapService} from './assign-map.service';
 
 @Component({
@@ -10,7 +10,7 @@ import {AssignMapService} from './assign-map.service';
 })
 export class AssignMapComponent implements OnInit {
 
-  assignMap$: Observable<AssignMap>;
+  assignMap$: Observable<AssignMapModel>;
 
   constructor(private assignMapService: AssignMapService) {
   }

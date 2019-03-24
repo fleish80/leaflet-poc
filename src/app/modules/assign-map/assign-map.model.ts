@@ -1,12 +1,12 @@
+import {MapListModel} from './map-list/map-list.model';
 import {WingItem} from '../../core/models/items/wing.item';
 
+export class AssignMapModel {
 
+  mapList: MapListModel;
 
-export class AssignMap {
-
-  availableMaps: WingItem[];
-
-  constructor(building?: any, availableMaps?: WingItem[]) {
-    this.availableMaps = availableMaps.sort((map1: WingItem, map2: WingItem) => map1.mapName >= map2.mapName ? 1 : -1);
+  constructor(data: any) {
+    this.mapList = new MapListModel(data.availableMaps as WingItem[]);
   }
+
 }

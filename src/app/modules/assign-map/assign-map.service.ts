@@ -1,10 +1,17 @@
 import {Injectable} from '@angular/core';
-import {AssignMap} from './assign-map.model';
 import {Observable, of} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {AssignMapModel} from './assign-map.model';
 
-const assignMapUrl = '/assets//mocks/assign-map/assign-map.json';
+// const assignMapUrl = '/assets//mocks/assign-map/assign-map.json';
+// const assignMapUrl = 'http://localhost:80/asset-manager-web/rest/fixed-asset-rest/';
+const assignMapUrl = '/asset-manager-web/unsecured/assign-map/assets//mocks/assign-map/assign-map.json';
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'}),
+  withCredentials: true
+};
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +21,9 @@ export class AssignMapService {
   constructor(private http: HttpClient) {
   }
 
-  get(): Observable<AssignMap> {
-    return this.http.get<AssignMap>(assignMapUrl).pipe(
-      map((data: any) => new AssignMap(data.building, data.availableMaps))
+  get(): Observable<AssignMapModel> {
+    return this.http.get<AssignMapModel>(assignMapUrl).pipe(
+      map((data: any) => new AssignMapModel(data))
     );
   }
 }

@@ -1,6 +1,6 @@
 <section class="assign-map" *ngIf="assignMap$ | async as assignMap; else loading">
   <mv-building-list class="assign-map__wrapper"></mv-building-list>
-  <mv-map-list class="assign-map__wrapper" [wingMapItems]="assignMap.availableMaps"></mv-map-list>
+  <mv-map-list class="assign-map__wrapper" [mapList]="assignMap?.mapList"></mv-map-list>
 </section>
 
 <ng-template #loading>

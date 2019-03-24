@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {SortingState} from './sorting-state.enum';
 import {FormControl} from '@angular/forms';
 import {SortingOptions} from './sorting-options.array';
-import {WingItem} from '../../../core/models/items/wing.item';
+import {MapListModel} from './map-list.model';
 
 @Component({
   selector: 'mv-map-list',
@@ -12,7 +12,7 @@ import {WingItem} from '../../../core/models/items/wing.item';
 })
 export class MapListComponent implements OnInit {
 
-  @Input() wingMapItems: WingItem[];
+  @Input() mapList: MapListModel;
   sortCtrl: FormControl;
   sortingState = SortingState;
   sortingOptions = SortingOptions;

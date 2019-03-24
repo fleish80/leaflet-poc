@@ -8,7 +8,7 @@
     </mat-select>
   </mat-form-field>
 
-  <div *ngFor="let wingMapItem of wingMapItems" cdkDrag tabindex="0">
+  <div *ngFor="let wingMapItem of mapList?.alphabeticallyNodes" cdkDrag tabindex="0">
     <span class="cdk-drag__text">{{wingMapItem?.mapName}}</span>
     <i class="cdk-drag__indicator-icon"></i>
   </div>
