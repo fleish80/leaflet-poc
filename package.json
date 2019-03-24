@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-mv": "ng build --outputPath=C:\\ws\\mobileview\\mobileview\\build\\target\\mv\\tomcat\\webapps\\asset-manager-web\\unsecured\\assign-map  --base-href /asset-manager-web/unsecured/assign-map/ --watch=true"
   },
   "private": true,
   "dependencies": {
