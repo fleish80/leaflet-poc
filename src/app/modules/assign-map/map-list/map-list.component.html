@@ -8,12 +8,39 @@
     </mat-select>
   </mat-form-field>
 
-  <div *ngFor="let wingMapItem of mapList?.alphabeticallyNodes" cdkDrag tabindex="0">
-    <span class="cdk-drag__text">{{wingMapItem?.mapName}}</span>
-    <i class="cdk-drag__indicator-icon"></i>
-  </div>
+  <ng-template [ngIf]="currentSortingState === sortingState.Alphabetically">
+    <div *ngFor="let wingMapItem of mapList?.alphabeticallyNodes" cdkDrag tabindex="0">
+      <span class="cdk-drag__text">{{wingMapItem?.mapName}}</span>
+      <i class="cdk-drag__indicator-icon"></i>
+    </div>
+  </ng-template>
+
+  <ng-template [ngIf]="currentSortingState === sortingState.GatewayGroup">
+    <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <!-- This is the tree node template for leaf nodes -->
+      <cdk-nested-tree-node *cdkTreeNodeDef="let node" class="example-tree-node">
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <button mat-icon-button disabled></button>
+        {{node.mapName}}
+      </cdk-nested-tree-node>
+      <!-- This is the tree node template for expandable nodes -->
+      <cdk-nested-tree-node *cdkTreeNodeDef="let node; when: hasChild" class="example-tree-node">
+        <button mat-icon-button [attr.aria-label]="'toggle ' + node.name" cdkTreeNodeToggle>
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        {{node.nodeName}}
+        <div [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+          <ng-container cdkTreeNodeOutlet></ng-container>
+        </div>
+      </cdk-nested-tree-node>
+    </cdk-tree>
+
+  </ng-template>
 
 </section>
 
-<pre>{{mapList?.hierarchyNodes | json}}</pre>
+
+xxxxxxxxxxx
 

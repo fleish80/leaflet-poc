@@ -1,8 +1,12 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {SortingState} from './sorting-state.enum';
 import {FormControl} from '@angular/forms';
 import {SortingOptions} from './sorting-options.array';
-import {MapListModel} from './map-list.model';
+import {MapListModel, TreeNode} from './map-list.model';
+import {Subscription} from 'rxjs';
+import {NestedTreeControl} from '@angular/cdk/tree';
+import {ArrayDataSource} from '@angular/cdk/collections';
+import {WingItem} from '../../../core/models/items/wing.item';
 
 @Component({
   selector: 'mv-map-list',
@@ -10,17 +14,39 @@ import {MapListModel} from './map-list.model';
   styleUrls: ['./map-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MapListComponent implements OnInit {
+export class MapListComponent implements OnInit, OnDestroy {
 
   @Input() mapList: MapListModel;
   sortCtrl: FormControl;
   sortingState = SortingState;
+  currentSortingState = SortingState.GatewayGroup;
   sortingOptions = SortingOptions;
+  subscription = new Subscription();
+  treeControl: NestedTreeControl<TreeNode>;
+  dataSource: ArrayDataSource<TreeNode>;
+  hasChild: (_: number, TreeNode) => boolean;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
-    this.sortCtrl = new FormControl(SortingState.Hierarchy);
+    this.treeControl = new NestedTreeControl<TreeNode>((node: any) => node.children);
+    this.dataSource = new ArrayDataSource(this.mapList.gatewayGroupNodes);
+    this.setSortCtrl();
+  }
+
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+
+  setSortCtrl() {
+    this.sortCtrl = new FormControl(this.currentSortingState);
+    this.subscription.add(
+      this.sortCtrl.valueChanges.subscribe((sortingState: SortingState) => {
+        console.log(sortingState);
+      }));
   }
 
 }

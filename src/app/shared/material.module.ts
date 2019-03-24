@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSelectModule} from '@angular/material';
+import {CdkTreeModule} from '@angular/cdk/tree';
 
 @NgModule({
   declarations: [],
@@ -9,7 +10,8 @@ import {MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSelectM
     MatProgressSpinnerModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule]
+    MatInputModule,
+    CdkTreeModule]
 })
 export class MaterialModule {
 }
