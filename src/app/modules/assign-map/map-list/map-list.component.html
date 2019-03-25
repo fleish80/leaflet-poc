@@ -1,4 +1,4 @@
-<section cdkDropList [cdkDropListData]="wingMapItems">
+<section>
   <mat-form-field appearance="outline">
     <mat-label>Sort maps by:</mat-label>
     <mat-select [formControl]="sortCtrl">
@@ -9,38 +9,32 @@
   </mat-form-field>
 
   <ng-template [ngIf]="currentSortingState === sortingState.Alphabetically">
-    <div *ngFor="let wingMapItem of mapList?.alphabeticallyNodes" cdkDrag tabindex="0">
-      <span class="cdk-drag__text">{{wingMapItem?.mapName}}</span>
-      <i class="cdk-drag__indicator-icon"></i>
+    <div cdkDropList cdkDropListConnectedTo="building-list">
+      <mv-map-item *ngFor="let wingItem of mapList?.alphabeticallyNodes" [wingItem]="wingItem" cdkDrag></mv-map-item>
     </div>
   </ng-template>
 
-  <ng-template [ngIf]="currentSortingState === sortingState.GatewayGroup">
+  <ng-template
+    [ngIf]="currentSortingState === sortingState.Hierarchy || currentSortingState === sortingState.GatewayGroup">
     <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
-      <!-- This is the tree node template for leaf nodes -->
-      <cdk-nested-tree-node *cdkTreeNodeDef="let node" class="example-tree-node">
-        <!-- use a disabled button to provide padding for tree leaf -->
-        <button mat-icon-button disabled></button>
-        {{node.mapName}}
+      <!--leaf-->
+      <cdk-nested-tree-node cdkDropList [cdkDropListConnectedTo]="['building-list']" *cdkTreeNodeDef="let wingItem">
+        <mv-map-item [wingItem]="wingItem" cdkDrag></mv-map-item>
       </cdk-nested-tree-node>
-      <!-- This is the tree node template for expandable nodes -->
-      <cdk-nested-tree-node *cdkTreeNodeDef="let node; when: hasChild" class="example-tree-node">
-        <button mat-icon-button [attr.aria-label]="'toggle ' + node.name" cdkTreeNodeToggle>
+      <!-- node -->
+      <cdk-nested-tree-node *cdkTreeNodeDef="let node; when: hasChild"
+                            [ngClass]="treeControl.isExpanded(node) ? 'cdk-nested-tree-node--expanded' : 'cdk-nested-tree-node--collapsed'">
+        <button [id]="node.id" mat-icon-button cdkTreeNodeToggle>
           <mat-icon class="mat-icon-rtl-mirror">
             {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
           </mat-icon>
         </button>
-        {{node.nodeName}}
-        <div [class.example-tree-invisible]="!treeControl.isExpanded(node)">
-          <ng-container cdkTreeNodeOutlet></ng-container>
-        </div>
+        <label [for]="node.id" class="cdk-nested-tree-node__text">{{node.nodeName}}</label>
+        <ng-container cdkTreeNodeOutlet></ng-container>
       </cdk-nested-tree-node>
     </cdk-tree>
 
   </ng-template>
 
 </section>
-
-
-xxxxxxxxxxx
 

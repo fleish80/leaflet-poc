@@ -1,0 +1,45 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px #e0e0e0;
+  background-color: #f8feff;
+  border-radius: 3px;
+  font-size: 15px;
+  padding: 5px;
+  margin-bottom: 10px;
+  cursor: all-scroll;
+
+  .cdk-drag__indicator-icon {
+    background-image: url('/assets/icons/assign-map/drag-indicator.svg');
+    width: 18px;
+    height: 18px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.cdk-drag-preview, &:focus {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border: solid 1px #32b1bd;
+    background-color: #f8feff;
+
+    .cdk-drag__indicator-icon {
+      background-image: url('/assets/icons/assign-map/drag-indicator-draged.svg');
+    }
+  }
+
+  &.cdk-drag-placeholder {
+    border: dashed 1px rgba(0, 0, 0, 0.12);
+    background-color: rgba(0, 0, 0, 0.05);
+
+    .cdk-drag__text {
+      visibility: hidden;
+    }
+
+    .cdk-drag__indicator-icon {
+      display: none;
+    }
+  }
+}

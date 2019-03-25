@@ -19,7 +19,7 @@ export class MapListComponent implements OnInit, OnDestroy {
   @Input() mapList: MapListModel;
   sortCtrl: FormControl;
   sortingState = SortingState;
-  currentSortingState = SortingState.GatewayGroup;
+  currentSortingState = SortingState.Alphabetically;
   sortingOptions = SortingOptions;
   subscription = new Subscription();
   treeControl: NestedTreeControl<TreeNode>;
@@ -31,10 +31,10 @@ export class MapListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.treeControl = new NestedTreeControl<TreeNode>((node: any) => node.children);
-    this.dataSource = new ArrayDataSource(this.mapList.gatewayGroupNodes);
+    this.dataSource = new ArrayDataSource(this.mapList.hierarchyNodes);
+    this.hasChild =  (_: number, node: TreeNode) => !!node.children && node.children.length > 0;
     this.setSortCtrl();
   }
-
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

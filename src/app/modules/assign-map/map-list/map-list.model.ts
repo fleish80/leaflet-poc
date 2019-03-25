@@ -1,8 +1,11 @@
 import {WingItem} from '../../../core/models/items/wing.item';
 
+const treeNodeIdPrefix = 'tree-node-';
+
 export interface TreeNode {
+  id: string;
   nodeName: string;
-  children?: (TreeNode | WingItem)[];
+  children: (TreeNode | WingItem)[];
 }
 
 export class MapListModel {
@@ -17,38 +20,38 @@ export class MapListModel {
   }
 
   setNodes() {
-    const gatewayGroupYreeNodeMap: Map<string, TreeNode> = new Map<string, TreeNode>();
+    const gatewayGroupNodeMap: Map<string, TreeNode> = new Map<string, TreeNode>();
     const hierarchyNodesMap: Map<string, TreeNode> = new Map<string, TreeNode>();
-    this.alphabeticallyNodes.forEach((wingItem: WingItem) => {
+    this.alphabeticallyNodes.forEach((wingItem: WingItem, index: number) => {
       const gatewayGroupName = wingItem.gatewayGroup;
-      if (!gatewayGroupYreeNodeMap.has(gatewayGroupName)) {
-        gatewayGroupYreeNodeMap.set(gatewayGroupName, {nodeName: gatewayGroupName, children: []});
+      if (!gatewayGroupNodeMap.has(gatewayGroupName)) {
+        gatewayGroupNodeMap.set(gatewayGroupName, {id: `${treeNodeIdPrefix}${index}`, nodeName: gatewayGroupName, children: []});
       }
-      const treeNode = gatewayGroupYreeNodeMap.get(gatewayGroupName);
+      const treeNode = gatewayGroupNodeMap.get(gatewayGroupName);
       treeNode.children.push(wingItem);
 
       const hierarchyName = wingItem.hierarchy || 'No Hierarchy';
       const hierarchies = hierarchyName.split('>');
 
       let previousNode;
-      hierarchies.forEach((hierarchy: string, index: number) => {
-        if (index === 0) {
+      hierarchies.forEach((hierarchy: string, indexHierarchies: number) => {
+        if (indexHierarchies === 0) {
           if (!hierarchyNodesMap.has(hierarchy)) {
-            hierarchyNodesMap.set(hierarchy, {nodeName: hierarchy, children: []});
+            hierarchyNodesMap.set(hierarchy, {id: `${treeNodeIdPrefix}${index}-${indexHierarchies}`, nodeName: hierarchy, children: []});
           }
           previousNode = hierarchyNodesMap.get(hierarchy);
         } else {
           if (!previousNode.children.some((tn: TreeNode) => tn.nodeName === hierarchy)) {
-            previousNode.children.push({nodeName: hierarchy, children: []});
+            previousNode.children.push({id: `${treeNodeIdPrefix}${index}-${indexHierarchies}`, nodeName: hierarchy, children: []});
           }
           previousNode = previousNode.children.find((tn: TreeNode | WingItem) => (tn as TreeNode).nodeName === hierarchy);
         }
-        if (index === hierarchies.length - 1) {
+        if (indexHierarchies === hierarchies.length - 1) {
           previousNode.children.push(wingItem);
         }
       });
     });
-    this.gatewayGroupNodes = Array.from(gatewayGroupYreeNodeMap.values());
+    this.gatewayGroupNodes = Array.from(gatewayGroupNodeMap.values());
     this.hierarchyNodes = Array.from(hierarchyNodesMap.values());
   }
 
