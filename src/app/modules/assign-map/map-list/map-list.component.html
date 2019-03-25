@@ -8,33 +8,13 @@
     </mat-select>
   </mat-form-field>
 
-  <ng-template [ngIf]="currentSortingState === sortingState.Alphabetically">
-    <div cdkDropList cdkDropListConnectedTo="building-list">
-      <mv-map-item *ngFor="let wingItem of mapList?.alphabeticallyNodes" [wingItem]="wingItem" cdkDrag></mv-map-item>
-    </div>
-  </ng-template>
 
-  <ng-template
-    [ngIf]="currentSortingState === sortingState.Hierarchy || currentSortingState === sortingState.GatewayGroup">
-    <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
-      <!--leaf-->
-      <cdk-nested-tree-node cdkDropList [cdkDropListConnectedTo]="['building-list']" *cdkTreeNodeDef="let wingItem">
-        <mv-map-item [wingItem]="wingItem" cdkDrag></mv-map-item>
-      </cdk-nested-tree-node>
-      <!-- node -->
-      <cdk-nested-tree-node *cdkTreeNodeDef="let node; when: hasChild"
-                            [ngClass]="treeControl.isExpanded(node) ? 'cdk-nested-tree-node--expanded' : 'cdk-nested-tree-node--collapsed'">
-        <button [id]="node.id" mat-icon-button cdkTreeNodeToggle>
-          <mat-icon class="mat-icon-rtl-mirror">
-            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-          </mat-icon>
-        </button>
-        <label [for]="node.id" class="cdk-nested-tree-node__text">{{node.nodeName}}</label>
-        <ng-container cdkTreeNodeOutlet></ng-container>
-      </cdk-nested-tree-node>
-    </cdk-tree>
-
-  </ng-template>
+  <div cdkDropList cdkDropListConnectedTo="building-list" *ngIf="!treeNodes">
+    <mv-map-item *ngFor="let wingItem of mapList?.alphabeticallyNodes" [wingItem]="wingItem" cdkDrag></mv-map-item>
+  </div>
+  <mv-map-tree
+    *ngIf="!!treeNodes"
+    [treeNodes]="treeNodes"></mv-map-tree>
 
 </section>
 

@@ -9,9 +9,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { BuildingListComponent } from './building-list/building-list.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { MapItemComponent } from './map-item/map-item.component';
+import { MapTreeComponent } from './map-tree/map-tree.component';
 
 @NgModule({
-  declarations: [AssignMapComponent, MapListComponent, DragDropComponent, BuildingListComponent, MapItemComponent],
+  declarations: [AssignMapComponent, MapListComponent, DragDropComponent, BuildingListComponent, MapItemComponent, MapTreeComponent],
   imports: [
     SharedModule,
     AssignMapRoutingModule,

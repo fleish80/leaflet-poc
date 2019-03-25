@@ -1,12 +1,25 @@
-import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {SortingState} from './sorting-state.enum';
 import {FormControl} from '@angular/forms';
-import {SortingOptions} from './sorting-options.array';
 import {MapListModel, TreeNode} from './map-list.model';
 import {Subscription} from 'rxjs';
-import {NestedTreeControl} from '@angular/cdk/tree';
-import {ArrayDataSource} from '@angular/cdk/collections';
-import {WingItem} from '../../../core/models/items/wing.item';
+
+
+const SortingOptions = [
+  {
+    state: SortingState.Alphabetically,
+    text: 'Alphabetically'
+  },
+  {
+    state: SortingState.Hierarchy,
+    text: 'Hierarchy'
+  },
+  {
+    state: SortingState.GatewayGroup,
+    text: 'Gateway Group'
+  },
+];
+
 
 @Component({
   selector: 'mv-map-list',
@@ -14,39 +27,44 @@ import {WingItem} from '../../../core/models/items/wing.item';
   styleUrls: ['./map-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MapListComponent implements OnInit, OnDestroy {
+export class MapListComponent implements OnChanges, OnDestroy {
 
   @Input() mapList: MapListModel;
   sortCtrl: FormControl;
-  sortingState = SortingState;
-  currentSortingState = SortingState.Alphabetically;
+  treeNodes: TreeNode[];
   sortingOptions = SortingOptions;
   subscription = new Subscription();
-  treeControl: NestedTreeControl<TreeNode>;
-  dataSource: ArrayDataSource<TreeNode>;
-  hasChild: (_: number, TreeNode) => boolean;
+  private treeNodesMap: Map<SortingState, TreeNode[] | null>;
 
   constructor() {
   }
 
-  ngOnInit() {
-    this.treeControl = new NestedTreeControl<TreeNode>((node: any) => node.children);
-    this.dataSource = new ArrayDataSource(this.mapList.hierarchyNodes);
-    this.hasChild =  (_: number, node: TreeNode) => !!node.children && node.children.length > 0;
-    this.setSortCtrl();
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.mapList && (changes.mapList.previousValue !== changes.mapList.currentValue)) {
+      this.treeNodesMap = new Map<SortingState, TreeNode[] | null>([
+        [SortingState.Alphabetically, null],
+        [SortingState.Hierarchy, this.mapList.hierarchyNodes],
+        [SortingState.GatewayGroup, this.mapList.gatewayGroupNodes]
+      ]);
+      this.setSortCtrl(SortingState.Hierarchy);
+      this.setSortingState(SortingState.Hierarchy);
+    }
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-
-  setSortCtrl() {
-    this.sortCtrl = new FormControl(this.currentSortingState);
+  setSortCtrl(sortingState: SortingState) {
+    this.sortCtrl = new FormControl(sortingState);
     this.subscription.add(
-      this.sortCtrl.valueChanges.subscribe((sortingState: SortingState) => {
-        console.log(sortingState);
+      this.sortCtrl.valueChanges.subscribe((ss: SortingState) => {
+        this.setSortingState(ss);
       }));
+  }
+
+  setSortingState(sortingState: SortingState) {
+    this.treeNodes = this.treeNodesMap.get(sortingState);
   }
 
 }
