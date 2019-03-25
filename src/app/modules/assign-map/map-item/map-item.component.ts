@@ -10,7 +10,6 @@ import {WingItem} from '../../../core/models/items/wing.item';
 export class MapItemComponent implements OnInit {
 
   @Input() wingItem: WingItem;
-  @HostBinding() tabindex = 0;
 
   constructor() { }
 

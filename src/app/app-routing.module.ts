@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'index.html',
+    path: '',
     redirectTo: 'assign-map',
     pathMatch: 'full'
   },
