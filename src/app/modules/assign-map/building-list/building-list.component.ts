@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CdkDragDrop} from '@angular/cdk/drag-drop';
+import {WingItem} from '../../../core/models/items/wing.item';
 
 @Component({
   selector: 'mv-building-list',
@@ -12,4 +14,8 @@ export class BuildingListComponent implements OnInit {
   ngOnInit() {
   }
 
+  drop(event: CdkDragDrop<any>) {
+    console.log('previousIndex = ', event.previousIndex);
+    console.log('id = ', event.previousContainer.id);
+  }
 }

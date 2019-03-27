@@ -1,6 +1,8 @@
-<button class="cdk-drag__btn">
-  <span class="cdk-drag__btn__wrapper">
-    <span class="cdk-drag__text">{{wingItem?.mapName}}</span>
-    <i class="cdk-drag__indicator-icon"></i>
-  </span>
-</button>
+<section [id]="wingItem.id" cdkDropList cdkDropListConnectedTo="building-list">
+  <button class="cdk-drag__btn" cdkDrag>
+    <span class="cdk-drag__btn__wrapper">
+      <span class="cdk-drag__text">{{wingItem?.mapName}}</span>
+      <i class="cdk-drag__indicator-icon"></i>
+    </span>
+  </button>
+</section>

@@ -1,6 +1,6 @@
 <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
   <!--leaf-->
-  <cdk-nested-tree-node cdkDropList [cdkDropListConnectedTo]="['building-list']" *cdkTreeNodeDef="let wingItem">
+  <cdk-nested-tree-node cdkDropList [cdkDropListConnectedTo]="['building-list']" *cdkTreeNodeDef="let wingItem" id="{{wingItem.id}}">
     <mv-map-item [wingItem]="wingItem" cdkDrag></mv-map-item>
   </cdk-nested-tree-node>
   <!-- node -->

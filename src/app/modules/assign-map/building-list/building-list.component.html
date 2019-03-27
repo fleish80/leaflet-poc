@@ -1,8 +1,5 @@
-<!--<section id="building-list">-->
-  <!--section-->
-<!--</section>-->
 
-<section class="building-list" cdkDropList id="building-list">
-  <!--<div *ngFor="let item of list" cdkDrag>{{ item }}</div>-->
+<section class="building-list" cdkDropList id="building-list" (cdkDropListDropped)="drop($event)">
+
 
 </section>

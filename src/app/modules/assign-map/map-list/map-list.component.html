@@ -9,8 +9,8 @@
   </mat-form-field>
 
 
-  <div cdkDropList cdkDropListConnectedTo="building-list" *ngIf="!treeNodes">
-    <mv-map-item *ngFor="let wingItem of mapList?.alphabeticallyNodes" [wingItem]="wingItem" cdkDrag></mv-map-item>
+  <div *ngIf="!treeNodes">
+    <mv-map-item *ngFor="let wingItem of mapList?.alphabeticallyNodes" [wingItem]="wingItem"></mv-map-item>
   </div>
   <mv-map-tree
     *ngIf="!!treeNodes"
