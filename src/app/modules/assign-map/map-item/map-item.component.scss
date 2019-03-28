@@ -8,10 +8,8 @@
 
   &.cdk-drag-preview {
     .cdk-drag__btn {
-
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
       border: solid 1px #32b1bd;
-
       .cdk-drag__indicator-icon {
         background-image: url('/assets/icons/assign-map/drag-indicator-draged.svg');
       }

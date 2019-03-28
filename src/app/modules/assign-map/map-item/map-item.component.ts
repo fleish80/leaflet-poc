@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, HostBinding, Input, OnInit} from '@angular/core';
 import {WingItem} from '../../../core/models/items/wing.item';
+import {WingMapItem} from '../../../core/models/items/wing-map.item';
 
 @Component({
   selector: 'mv-map-item',
@@ -9,7 +10,7 @@ import {WingItem} from '../../../core/models/items/wing.item';
 })
 export class MapItemComponent implements OnInit {
 
-  @Input() wingItem: WingItem;
+  @Input() wingMapItem: WingMapItem;
 
   constructor() { }
 

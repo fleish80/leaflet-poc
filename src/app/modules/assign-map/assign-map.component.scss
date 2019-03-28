@@ -25,6 +25,7 @@ $assign-map__wrapper-margin: 10px;
   border-radius: 3px;
   border: solid 1px #d7d7d7;
   flex: 1;
+  overflow: auto;
   margin-right: $assign-map__wrapper-margin;
   @include rtl {
     margin-right: 0;

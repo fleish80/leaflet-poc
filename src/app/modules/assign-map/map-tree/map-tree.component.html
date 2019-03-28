@@ -1,17 +1,19 @@
 <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
   <!--leaf-->
-  <cdk-nested-tree-node cdkDropList [cdkDropListConnectedTo]="['building-list']" *cdkTreeNodeDef="let wingItem" id="{{wingItem.id}}">
-    <mv-map-item [wingItem]="wingItem" cdkDrag></mv-map-item>
+  <cdk-nested-tree-node cdkDropList [cdkDropListConnectedTo]="['building-list']" *cdkTreeNodeDef="let wingMapItem" id="{{wingMapItem.id}}">
+    <mv-map-item [wingMapItem]="wingMapItem" cdkDrag></mv-map-item>
   </cdk-nested-tree-node>
   <!-- node -->
   <cdk-nested-tree-node *cdkTreeNodeDef="let node; when: hasChild"
                         [ngClass]="treeControl.isExpanded(node) ? 'cdk-nested-tree-node--expanded' : 'cdk-nested-tree-node--collapsed'">
-    <button [id]="node.id" mat-icon-button cdkTreeNodeToggle>
-      <mat-icon class="mat-icon-rtl-mirror">
-        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-      </mat-icon>
-    </button>
-    <label [for]="node.id" class="cdk-nested-tree-node__text">{{node.nodeName}}</label>
+    <div class="cdk-nested-tree-node__wrapper">
+      <button [id]="node.id" mat-icon-button cdkTreeNodeToggle>
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      <label [for]="node.id" class="cdk-nested-tree-node__text">{{node.nodeName}}</label>
+    </div>
     <ng-container cdkTreeNodeOutlet></ng-container>
   </cdk-nested-tree-node>
 </cdk-tree>
