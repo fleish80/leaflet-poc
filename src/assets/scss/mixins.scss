@@ -1,0 +1,5 @@
+@mixin rtl {
+  ::ng-deep html[dir=rtl] & {
+    @content;
+  }
+}

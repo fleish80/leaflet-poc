@@ -1,17 +1,21 @@
+@import "../../../assets/scss/mixins";
+
 $assign-map__wrapper-margin: 10px;
 
 :host {
   display: block;
   height: 100%;
   margin-left: $assign-map__wrapper-margin;
+  @include rtl {
+    margin-left: 0;
+    margin-right: $assign-map__wrapper-margin
+  }
 }
 
 .assign-map {
   height: 100%;
   display: flex;
 }
-
-
 
 .assign-map__wrapper {
   background-color: #f9f9f9;
@@ -22,7 +26,14 @@ $assign-map__wrapper-margin: 10px;
   border: solid 1px #d7d7d7;
   flex: 1;
   margin-right: $assign-map__wrapper-margin;
+  @include rtl {
+    margin-right: 0;
+    margin-left: $assign-map__wrapper-margin;
+  }
   &:last-child {
     margin-right: 0;
+    @include rtl {
+      margin-left: 0;
+    }
   }
 }

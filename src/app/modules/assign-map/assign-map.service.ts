@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {interval, Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {map, switchMap, take, timeout} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {AssignMapModel} from './assign-map.model';
 
 const assignMapUrl = '/assets/mocks/assign-map/assign-map.json';
@@ -11,7 +11,6 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'}),
   withCredentials: true
 };
-
 
 @Injectable({
   providedIn: 'root'
