@@ -52,12 +52,30 @@
 .building__header__text {
   font-size: 1.6rem;
   line-height: 1.18;
-  letter-spacing: normal;
   font-weight: normal;
   padding-left: 5px;
   @include rtl {
     padding-left: 0;
     padding-right: 5px;
   }
+}
+
+.building__area__text {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.14;
+}
+
+.building__area__drag {
+  height: 45px;
+  border-radius: 3px;
+  border: dashed 2px #c7c7c7;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #666666;
+  text-transform: uppercase;
 }
 
