@@ -1,3 +1,5 @@
+@import "../../../../assets/scss/mixins";
+
 .mat-form-field {
   width: 100%;
 
@@ -5,5 +7,30 @@
     .mat-form-field-outline {
       background-color: #ffffff;
     }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header__icon {
+  background-image: url('/assets/icons/assign-map/default-stroke.svg');
+  display: block;
+  width: 20px;
+  height: 20px;
+
+}
+
+.header__text {
+  font-size: 1.7rem;
+  line-height: 1.18;
+  letter-spacing: normal;
+  font-weight: normal;
+  padding-left: 5px;
+  @include rtl {
+    padding-left: 0;
+    padding-right: 5px;
   }
 }
