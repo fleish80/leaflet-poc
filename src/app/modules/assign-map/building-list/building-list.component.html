@@ -1,8 +1,15 @@
 <!--<section class="building-list" cdkDropList id="building-list" (cdkDropListDropped)="drop($event)">-->
 
 
-<!--</section>-->
 <header class="header">
   <i class="header__icon"></i>
   <h2 class="header__text">{{buildingItem.buldingName}}</h2>
 </header>
+
+<section class="building" *ngFor="let floorItem of buildingItem.items |  orderBy: 'sequence': true">
+  <header class="building__header">
+    <i class="building__header__icon"></i>
+    <h3 class="building__header__text">{{floorItem.floorName}}</h3>
+  </header>
+</section>
+

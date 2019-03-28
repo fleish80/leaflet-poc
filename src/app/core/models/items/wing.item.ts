@@ -1,9 +1,8 @@
 import {Item} from './item';
+import {WingMapItem} from './wing-map.item';
 
 export interface WingItem extends Item {
-  mapName?: string;
-  gatewayGroup?: string;
-  engineId?: string;
-  hierarchy?: string;
-  pendingDeletion?: boolean;
+  wingName: string;
+  map: WingMapItem;
+  sequence: number;
 }
