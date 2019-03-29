@@ -1,4 +1,4 @@
-<section [id]="wingMapItem.id" cdkDropList cdkDropListConnectedTo="building-list">
+<section [id]="wingMapItem.id" cdkDropList [cdkDropListConnectedTo]="connectToDropList" >
   <button class="cdk-drag__btn" cdkDrag>
     <span class="cdk-drag__btn__wrapper">
       <span class="cdk-drag__text">{{wingMapItem?.mapName}}</span>

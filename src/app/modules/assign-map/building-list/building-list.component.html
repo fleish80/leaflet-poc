@@ -13,7 +13,7 @@
   </header>
   <div class="building__area" *ngFor="let wingItem of floorItem.items">
     <h4 class="building__area__text">{{wingItem.wingName}}</h4>
-    <mv-map-item *ngIf="wingItem.map" [wingMapItem]="wingItem.map"></mv-map-item>
+    <mv-map-item *ngIf="wingItem.map" [wingMapItem]="wingItem.map" [connectToDropList]="['map-list']"></mv-map-item>
     <div class="building__area__drag" *ngIf="!wingItem.map" cdkDropList id="wingItem.id">
       drag available map here
     </div>

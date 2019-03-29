@@ -3,6 +3,7 @@ import {SortingState} from './sorting-state.enum';
 import {FormControl} from '@angular/forms';
 import {MapListModel, TreeNode} from './map-list.model';
 import {Subscription} from 'rxjs';
+import {CdkDragDrop} from '@angular/cdk/drag-drop';
 
 
 const SortingOptions = [
@@ -65,6 +66,11 @@ export class MapListComponent implements OnChanges, OnDestroy {
 
   setSortingState(sortingState: SortingState) {
     this.treeNodes = this.treeNodesMap.get(sortingState);
+  }
+
+  drop(event: CdkDragDrop<any>) {
+    console.log('draged to map-list');
+    console.log('id = ', event.previousContainer.id);
   }
 
 }

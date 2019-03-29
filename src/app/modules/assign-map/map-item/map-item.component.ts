@@ -11,6 +11,7 @@ import {WingMapItem} from '../../../core/models/items/wing-map.item';
 export class MapItemComponent implements OnInit {
 
   @Input() wingMapItem: WingMapItem;
+  @Input() connectToDropList: string[];
 
   constructor() { }
 

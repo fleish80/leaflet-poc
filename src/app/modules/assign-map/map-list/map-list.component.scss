@@ -1,5 +1,18 @@
 @import "../../../../assets/scss/mixins";
 
+#map-list {
+  border-radius: 3px;
+  border: solid 1px #d7d7d7;
+  height: 100%;
+  padding: 10px;
+  &.cdk-drop-list-dragging {
+    border: dashed 2px #32b1bd;
+    .cdk-drag-placeholder {
+      display: none;
+    }
+  }
+}
+
 .mat-form-field {
   width: 100%;
 
