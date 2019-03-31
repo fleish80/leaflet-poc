@@ -73,4 +73,8 @@ export class MapListComponent implements OnChanges, OnDestroy {
     console.log('id = ', event.previousContainer.id);
   }
 
+  exited(event) {
+    console.log('event', event);
+  }
+
 }
