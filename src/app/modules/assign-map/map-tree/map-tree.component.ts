@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {TreeNode} from '../map-list/map-list.model';
 import {NestedTreeControl} from '@angular/cdk/tree';
 import {ArrayDataSource} from '@angular/cdk/collections';
+import {TreeNode} from './tree-node.model';
 
 @Component({
   selector: 'mv-map-tree',

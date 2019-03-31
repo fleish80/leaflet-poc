@@ -1,5 +1,12 @@
 @import "../../../../assets/scss/mixins";
 
+#building-list {
+  border-radius: 3px;
+  border: solid 1px #d7d7d7;
+  padding: 10px;
+  height: calc(100% - 22px);
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -32,6 +39,7 @@
   background-color: #ffffff;
   padding: 10px;
   margin-bottom: 10px;
+
   &:last-child {
     margin-bottom: 0;
   }

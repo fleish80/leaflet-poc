@@ -1,9 +1,10 @@
 import {ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {SortingState} from './sorting-state.enum';
 import {FormControl} from '@angular/forms';
-import {MapListModel, TreeNode} from './map-list.model';
+import {MapListModel} from './map-list.model';
 import {Subscription} from 'rxjs';
 import {CdkDragDrop} from '@angular/cdk/drag-drop';
+import {TreeNode} from '../map-tree/tree-node.model';
 
 
 const SortingOptions = [
@@ -20,7 +21,6 @@ const SortingOptions = [
     text: 'Gateway Group'
   },
 ];
-
 
 @Component({
   selector: 'mv-map-list',
@@ -69,12 +69,13 @@ export class MapListComponent implements OnChanges, OnDestroy {
   }
 
   drop(event: CdkDragDrop<any>) {
-    console.log('draged to map-list');
-    console.log('id = ', event.previousContainer.id);
+    console.log('dragged to map-list with id = ', event.previousContainer.id);
   }
 
-  exited(event) {
-    console.log('event', event);
+  /**
+   * Just needed to remove the cdk-drop-list-dragging class, does not do anything internally
+   */
+  exited() {
   }
 
 }

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {AssignMapModel} from './assign-map.model';
+import {AssignMap} from './assign-map.model';
 
 const assignMapUrl = '/assets/mocks/assign-map/assign-map.json';
 // const assignMapUrl = 'http://localhost/asset-manager-web/rest/assign-map-rest/load-data/()%3B()';
@@ -20,9 +20,9 @@ export class AssignMapService {
   constructor(private http: HttpClient) {
   }
 
-  get(): Observable<AssignMapModel> {
-    return this.http.get<AssignMapModel>(assignMapUrl, httpOptions).pipe(
-      map((data: any) => new AssignMapModel(data))
+  get(): Observable<AssignMap> {
+    return this.http.get<AssignMap>(assignMapUrl, httpOptions).pipe(
+      map((data: any) => new AssignMap(data))
     );
   }
 }

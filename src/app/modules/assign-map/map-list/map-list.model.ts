@@ -1,12 +1,7 @@
 import {WingMapItem} from '../../../core/models/items/wing-map.item';
+import {TreeNode} from '../map-tree/tree-node.model';
 
 const treeNodeIdPrefix = 'tree-node-';
-
-export interface TreeNode {
-  id: string;
-  nodeName: string;
-  children: (TreeNode | WingMapItem)[];
-}
 
 export class MapListModel {
 
