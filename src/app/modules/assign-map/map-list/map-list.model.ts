@@ -1,30 +1,48 @@
 import {WingMapItem} from '../../../core/models/items/wing-map.item';
 import {TreeNode} from '../map-tree/tree-node.model';
+import {MapItem} from '../map-item/map-item.model';
+
+export const mapListId = 'map-list';
 
 const treeNodeIdPrefix = 'tree-node-';
 
 export class MapListModel {
 
-  alphabeticallyNodes: WingMapItem[];
+  // alphabeticallyNodes: WingMapItem[];
+  mapItems: MapItem[];
   gatewayGroupNodes: TreeNode[];
   hierarchyNodes: TreeNode[];
 
-  constructor(availableMaps?: WingMapItem[]) {
-    this.alphabeticallyNodes = availableMaps.sort((map1: WingMapItem, map2: WingMapItem) => map1.mapName >= map2.mapName ? 1 : -1);
-    this.setNodes();
+  constructor(mapItems: MapItem[], buildMapIdsList: string[]) {
+    // this.alphabeticallyNodes = availableMaps.sort((map1: WingMapItem, map2: WingMapItem) => map1.mapName >= map2.mapName ? 1 : -1);
+    // mapItems.forEach((mapItem: MapItem) => mapItem.cdkDropListConnectedTo = buildMapIdsList);
+    // this.mapItems = mapItems;
+    this.setMapItems(mapItems, buildMapIdsList);
+    this.setGatewayGroupNodes();
+    this.setHierarchyNodes();
   }
 
-  setNodes() {
+  private setMapItems(mapItems: MapItem[], buildMapIdsList: string[]) {
+    mapItems.forEach((mapItem: MapItem) => mapItem.cdkDropListConnectedTo = buildMapIdsList);
+    this.mapItems = mapItems;
+  }
+
+  private setGatewayGroupNodes() {
     const gatewayGroupNodeMap: Map<string, TreeNode> = new Map<string, TreeNode>();
-    const hierarchyNodesMap: Map<string, TreeNode> = new Map<string, TreeNode>();
-    this.alphabeticallyNodes.forEach((wingMapItem: WingMapItem, index: number) => {
+    this.mapItems.forEach((wingMapItem: WingMapItem, index: number) => {
       const gatewayGroupName = wingMapItem.gatewayGroup;
       if (!gatewayGroupNodeMap.has(gatewayGroupName)) {
         gatewayGroupNodeMap.set(gatewayGroupName, {id: `${treeNodeIdPrefix}${index}`, nodeName: gatewayGroupName, children: []});
       }
       const treeNode = gatewayGroupNodeMap.get(gatewayGroupName);
       treeNode.children.push(wingMapItem);
+    });
+    this.gatewayGroupNodes = Array.from(gatewayGroupNodeMap.values());
+  }
 
+  private setHierarchyNodes() {
+    const hierarchyNodesMap: Map<string, TreeNode> = new Map<string, TreeNode>();
+    this.mapItems.forEach((wingMapItem: WingMapItem, index: number) => {
       const hierarchyName = wingMapItem.hierarchy || 'No Hierarchy';
       const hierarchies = hierarchyName.split('>');
 
@@ -46,7 +64,6 @@ export class MapListModel {
         }
       });
     });
-    this.gatewayGroupNodes = Array.from(gatewayGroupNodeMap.values());
     this.hierarchyNodes = Array.from(hierarchyNodesMap.values());
   }
 
