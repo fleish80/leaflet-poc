@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CdkDragDrop} from '@angular/cdk/drag-drop';
-import {WingItem} from '../../../core/models/items/wing.item';
-import {BuildingItem} from '../../../core/models/items/building.item';
+import {BuildingList} from './building-list';
 
 @Component({
   selector: 'mv-building-list',
@@ -10,7 +9,7 @@ import {BuildingItem} from '../../../core/models/items/building.item';
 })
 export class BuildingListComponent implements OnInit {
 
-  @Input() buildingItem: BuildingItem;
+  @Input() buildingList: BuildingList;
 
   constructor() { }
 

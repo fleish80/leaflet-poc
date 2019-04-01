@@ -1,7 +1,7 @@
 <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
   <!--leaf-->
-  <cdk-nested-tree-node cdkDropList [cdkDropListConnectedTo]="['building-list']" *cdkTreeNodeDef="let wingMapItem" id="{{wingMapItem.id}}">
-    <mv-map-item [wingMapItem]="wingMapItem" cdkDrag></mv-map-item>
+  <cdk-nested-tree-node cdkDropList *cdkTreeNodeDef="let mapItem" id="{{mapItem.id}}">
+    <mv-map-item [mapItem]="mapItem"></mv-map-item>
   </cdk-nested-tree-node>
   <!-- node -->
   <cdk-nested-tree-node *cdkTreeNodeDef="let node; when: hasChild"

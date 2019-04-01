@@ -6,16 +6,16 @@ import {mapListId} from '../map-list/map-list.model';
 
 export class BuildingList {
 
-  floorItems: FloorItem[];
+  buildingItem: BuildingItem;
 
   constructor(buildingItem: BuildingItem, buildMapIdsList: string[]) {
-    this.floorItems = buildingItem.items as FloorItem[];
+    this.buildingItem = buildingItem;
     this.setDropListConnectedTo(buildMapIdsList);
   }
 
-  setDropListConnectedTo(buildMapIdsList: string[]) {
+  private setDropListConnectedTo(buildMapIdsList: string[]) {
     buildMapIdsList.push(mapListId);
-    this.floorItems.forEach(
+    (this.buildingItem.items as FloorItem[]).forEach(
       (floorItem: FloorItem) => {
         (floorItem.items as WingItem[])
           .filter((wingItem: WingItem) => !!wingItem.map)

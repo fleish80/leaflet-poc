@@ -1,7 +1,7 @@
-<section class="map-item" [id]="wingMapItem.id" cdkDropList [cdkDropListConnectedTo]="connectToDropList" >
+<section class="map-item" [id]="mapItem.id" cdkDropList [cdkDropListConnectedTo]="mapItem.cdkDropListConnectedTo" >
   <button class="cdk-drag__btn" cdkDrag>
     <span class="cdk-drag__btn__wrapper">
-      <span class="cdk-drag__text">{{wingMapItem?.mapName}}</span>
+      <span class="cdk-drag__text">{{mapItem.mapName}}</span>
       <i class="cdk-drag__indicator-icon"></i>
     </span>
   </button>

@@ -9,7 +9,7 @@ export class AssignMap {
 
   buildingList: BuildingList;
   mapList: MapListModel;
-  buildMapIdsList: string[];
+  // buildMapIdsList: string[];
 
   constructor(data: { building: BuildingItem, availableMaps: MapItem[] }) {
     // this.buildingItem = data.building;

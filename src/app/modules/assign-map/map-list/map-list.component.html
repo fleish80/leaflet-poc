@@ -12,7 +12,7 @@
     </mat-select>
   </mat-form-field>
   <ng-template [ngIf]="!treeNodes">
-    <mv-map-item *ngFor="let wingMapItem of mapList?.alphabeticallyNodes" [wingMapItem]="wingMapItem"></mv-map-item>
+    <mv-map-item *ngFor="let mapItem of mapList.mapItems" [mapItem]="mapItem"></mv-map-item>
   </ng-template>
   <mv-map-tree
     *ngIf="!!treeNodes"
