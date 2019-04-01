@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AssignMap} from './assign-map.model';
 import {AssignMapService} from './assign-map.service';
@@ -12,10 +12,13 @@ export class AssignMapComponent implements OnInit {
 
   assignMap$: Observable<AssignMap>;
 
-  constructor(private assignMapService: AssignMapService) {
+  constructor(private assignMapService: AssignMapService, @Inject('window') private window: Window) {
   }
 
   ngOnInit() {
-    this.assignMap$ = this.assignMapService.get();
+    console.log(this.window);
+    const mapId = (this.window.parent as any).frommap_getSelectedBuilding();
+    const wingId = (this.window.parent as any).frommap_getSelectedFloor();
+    this.assignMap$ = this.assignMapService.get(mapId, wingId);
   }
 }
