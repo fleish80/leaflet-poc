@@ -1,4 +1,4 @@
-import {MapListModel} from './map-list/map-list.model';
+import {MapList} from './map-list/map-list.model';
 import {BuildingItem} from '../../core/models/items/building.item';
 import {FloorItem} from '../../core/models/items/floor.item';
 import {WingItem} from '../../core/models/items/wing.item';
@@ -8,13 +8,13 @@ import {BuildingList} from './building-list/building-list';
 export class AssignMap {
 
   buildingList: BuildingList;
-  mapList: MapListModel;
+  mapList: MapList;
   // buildMapIdsList: string[];
 
   constructor(data: { building: BuildingItem, availableMaps: MapItem[] }) {
     // this.buildingItem = data.building;
     const buildMapIdsList: string[] = this.getBuildMapIdsList(data.building);
-    this.mapList = new MapListModel(data.availableMaps, buildMapIdsList);
+    this.mapList = new MapList(data.availableMaps, buildMapIdsList);
     this.buildingList = new BuildingList(data.building, buildMapIdsList);
   }
 

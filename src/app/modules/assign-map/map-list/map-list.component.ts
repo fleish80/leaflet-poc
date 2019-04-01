@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {SortingState} from './sorting-state.enum';
 import {FormControl} from '@angular/forms';
-import {mapListId, MapListModel} from './map-list.model';
+import {mapListId, MapList} from './map-list.model';
 import {Subscription} from 'rxjs';
 import {CdkDragDrop} from '@angular/cdk/drag-drop';
 import {TreeNode} from '../map-tree/tree-node.model';
@@ -29,7 +29,7 @@ const SortingOptions = [
 })
 export class MapListComponent implements OnChanges, OnDestroy {
 
-  @Input() mapList: MapListModel;
+  @Input() mapList: MapList;
   sortCtrl: FormControl;
   treeNodes: TreeNode[];
   sortingOptions = SortingOptions;

@@ -6,17 +6,13 @@ export const mapListId = 'map-list';
 
 const treeNodeIdPrefix = 'tree-node-';
 
-export class MapListModel {
+export class MapList {
 
-  // alphabeticallyNodes: WingMapItem[];
   mapItems: MapItem[];
   gatewayGroupNodes: TreeNode[];
   hierarchyNodes: TreeNode[];
 
   constructor(mapItems: MapItem[], buildMapIdsList: string[]) {
-    // this.alphabeticallyNodes = availableMaps.sort((map1: WingMapItem, map2: WingMapItem) => map1.mapName >= map2.mapName ? 1 : -1);
-    // mapItems.forEach((mapItem: MapItem) => mapItem.cdkDropListConnectedTo = buildMapIdsList);
-    // this.mapItems = mapItems;
     this.setMapItems(mapItems, buildMapIdsList);
     this.setGatewayGroupNodes();
     this.setHierarchyNodes();

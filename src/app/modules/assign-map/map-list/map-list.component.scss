@@ -5,9 +5,20 @@
   border: solid 1px #d7d7d7;
   padding: 10px;
   height: calc(100% - 22px);
+  overflow: auto;
+
   &.cdk-drop-list-dragging {
     border: dashed 2px #32b1bd;
     height: calc(100% - 24px);
+
+    .header__text {
+      color: #32b1bd;
+    }
+
+    .header__icon {
+      background-image: url('/assets/icons/assign-map/default-stroke-draged.svg');
+    }
+
     ::ng-deep .cdk-drag-placeholder {
       display: none;
     }

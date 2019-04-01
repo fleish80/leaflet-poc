@@ -14,14 +14,14 @@ export class BuildingList {
   }
 
   private setDropListConnectedTo(buildMapIdsList: string[]) {
-    buildMapIdsList.push(mapListId);
+    const dropListConnectedTo = [...buildMapIdsList, mapListId];
     (this.buildingItem.items as FloorItem[]).forEach(
       (floorItem: FloorItem) => {
         (floorItem.items as WingItem[])
           .filter((wingItem: WingItem) => !!wingItem.map)
           .forEach((wingItem: WingItem) => {
             const mapItem: MapItem = wingItem.map as MapItem;
-            mapItem.cdkDropListConnectedTo = buildMapIdsList;
+            mapItem.cdkDropListConnectedTo = dropListConnectedTo;
           });
       }
     );
