@@ -4,9 +4,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {AssignMap} from './assign-map.model';
 
-const assignMapUrl = '/assets/mocks/assign-map/assign-map.json';
+// const assignMapUrl = '/assets/mocks/assign-map/assign-map.json';
 // const assignMapUrl = 'http://localhost/asset-manager-web/rest/assign-map-rest/load-data/()%3B()';
-// const assignMapUrl = '/asset-manager-web/unsecured/assign-map/assets/mocks/assign-map/assign-map.json';
+const assignMapUrl = '/asset-manager-web/unsecured/assign-map/assets/mocks/assign-map/assign-map.json';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'}),
   withCredentials: true
