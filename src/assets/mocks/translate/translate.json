@@ -1,0 +1,224 @@
+{
+  "translations": [
+    {
+      "className": ".KeyValueItem",
+      "key": "Hide",
+      "value": "Hide"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "HIGH",
+      "value": "High"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "critical",
+      "value": "Critical Priority"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "track_link_label",
+      "value": "Track this asset"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_admin_buttons_copy_zone_tooltip",
+      "value": "Copy Selected Zone"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "goToMap",
+      "value": "Go To Map"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_create_campus_wizard_assign_maps_available_maps_text",
+      "value": "To assign maps drag and drop the map to the desired area."
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "event_details_balloon_label",
+      "value": "Details"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "medium",
+      "value": "Medium Priority"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "adjust_smoothness",
+      "value": "Adjust smoothness"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_admin_buttons_delete_zone_tooltip",
+      "value": "Delete selected Zone"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "switchTo2d",
+      "value": "Switch to 2D view"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "building",
+      "value": "Building"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_create_campus_wizard_assign_maps_engine_hierarchy",
+      "value": "Hierarchy:"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "high",
+      "value": "High Priority"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_admin_buttons_edit_zone_tooltip",
+      "value": "Edit selected Zone"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_create_campus_wizard_assign_maps_engine_id",
+      "value": "Engine ID:"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_admin_buttons_toggle_exciters_tooltip",
+      "value": "Show/Hide Exciters on Map"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "low",
+      "value": "Low Priority"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "overview_header",
+      "value": "Overview Map"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "Assets",
+      "value": "Assets"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "floor",
+      "value": "Floor"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_create_campus_wizard_assign_maps_gw_group",
+      "value": "Gateway Group:"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "CRITICAL",
+      "value": "Critical"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "by_hierarchy",
+      "value": "By Hierarchy"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "area",
+      "value": "Area"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_create_campus_wizard_assign_maps_available_maps_title",
+      "value": "Available Maps"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "MEDIUM",
+      "value": "Medium"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "no_hierarchy",
+      "value": "No Hierarchy"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_create_campus_wizard_map_pending_deletion",
+      "value": "(Pending Deletion)"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "magic_zone_start_text",
+      "value": "Create a zone by pressing the left mouse click in the center of the room"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "alphabetically",
+      "value": "Alphabetically"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "magic_zone_showing_zone_text",
+      "value": "Press Enter to approve selection or hold Shift to add another area to the zone"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_admin_buttons_move_zone_tooltip",
+      "value": "Move Selected Zone"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "magic_zone_create_error",
+      "value": "A room in the selected location could not be detected. Please create it manually."
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "no_history_data_message",
+      "value": "No historical data was found for this asset."
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "more_link_label",
+      "value": "More"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "by_gateway_group",
+      "value": "By Gateway Group"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "site",
+      "value": "Site"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "LOW",
+      "value": "Low"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_create_campus_wizard_assign_maps_map_name",
+      "value": "Map Name:"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "event_balloon_label",
+      "value": "Event"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "Show",
+      "value": "Show"
+    },
+    {
+      "className": ".KeyValueItem",
+      "key": "map_create_campus_wizard_assign_maps_map_details",
+      "value": "Map Details:"
+    }
+  ]
+}
