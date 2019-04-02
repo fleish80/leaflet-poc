@@ -12,13 +12,10 @@ export class AssignMapComponent implements OnInit {
 
   assignMap$: Observable<AssignMap>;
 
-  constructor(private assignMapService: AssignMapService, @Inject('window') private window: Window) {
+  constructor(private assignMapService: AssignMapService) {
   }
 
   ngOnInit() {
-    console.log(this.window);
-    const mapId = (this.window.parent as any).frommap_getSelectedBuilding();
-    const wingId = (this.window.parent as any).frommap_getSelectedFloor();
-    this.assignMap$ = this.assignMapService.get(mapId, wingId);
+    this.assignMap$ = this.assignMapService.get();
   }
 }

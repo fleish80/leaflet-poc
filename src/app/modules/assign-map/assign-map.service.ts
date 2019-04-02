@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
@@ -17,11 +17,16 @@ const httpOptions = {
 })
 export class AssignMapService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, @Inject('window') private window: Window) {
   }
 
-  get(mapId: string, wingId: string): Observable<AssignMap> {
-    const url = `${assignMapUrl}/${mapId};${wingId}`;
+  get(): Observable<AssignMap> {
+    const mapId = (this.window.parent as any).frommap_getSelectedBuilding();
+    const wingId = (this.window.parent as any).frommap_getSelectedFloor();
+    let url = `${assignMapUrl}/${mapId}`;
+    if (wingId) {
+      url = `${url};${wingId}`;
+    }
     return this.http.get<AssignMap>(url, httpOptions).pipe(
       map((data: any) => new AssignMap(data))
     );

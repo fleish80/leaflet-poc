@@ -3,9 +3,6 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {OrderModule} from 'ngx-order-pipe';
 
-export function windowFactory() {
-  return window;
-}
 
 @NgModule({
   exports: [
@@ -14,9 +11,7 @@ export function windowFactory() {
     ReactiveFormsModule,
     OrderModule
   ],
-  providers: [
-    { provide: 'window', useFactory: windowFactory }
-  ]
+
 })
 export class SharedModule {
 }

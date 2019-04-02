@@ -6,6 +6,10 @@ import {AppComponent} from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 
+export function windowFactory() {
+  return window;
+}
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +20,9 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'window', useFactory: windowFactory }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
