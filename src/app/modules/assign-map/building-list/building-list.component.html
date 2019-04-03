@@ -1,7 +1,7 @@
 <section class="building-list">
   <header class="header">
     <i class="header__icon"></i>
-    <h2 class="header__text">{{buildingList?.buildingItem?.buldingName}}</h2>
+    <h2 class="header__text">{{buildingList?.buildingItem?.buildingName}}</h2>
   </header>
 
   <section class="building" *ngFor="let floorItem of buildingList?.buildingItem?.items |  orderBy: 'sequence': true">
@@ -13,7 +13,7 @@
       <h4 class="building__area__text">{{wingItem.wingName}}</h4>
       <mv-map-item *ngIf="wingItem.map" [mapItem]="wingItem.map"></mv-map-item>
       <div class="building__area__drag" *ngIf="!wingItem.map" cdkDropList id="{{wingItem.id}}">
-        drag available map here
+        {{'drag_available_map_here' | trans | async}}
       </div>
     </div>
   </section>

@@ -219,6 +219,10 @@
       "className": ".KeyValueItem",
       "key": "map_create_campus_wizard_assign_maps_map_details",
       "value": "Map Details:"
+    },
+    {
+      "key": "drag_available_map_here",
+      "value": "Drag Available Map Here"
     }
   ]
 }

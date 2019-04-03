@@ -3,10 +3,12 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {AssignMap} from './assign-map.model';
+import {BuildingItem} from '../../core/models/items/building.item';
+import {MapItem} from './map-item/map-item.model';
 
-// const assignMapUrl = '/assets/mocks/assign-map/assign-map.json';
-// const assignMapUrl = 'http://localhost/asset-manager-web/rest/assign-map-rest/load-data';
-const assignMapUrl = '/asset-manager-web/unsecured/assign-map/assets/mocks/assign-map/assign-map.json';
+const assignMapUrl = '/assets/mocks/assign-map/assign-map.json';
+// const assignMapUrl = 'http://localhost/asset-manager-web/rest/assign-map-rest/load-campus-data';
+// const assignMapUrl = '/asset-manager-web/unsecured/assign-map/assets/mocks/assign-map/assign-map.json';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'}),
   withCredentials: true
@@ -22,14 +24,11 @@ export class AssignMapService {
 
   get(): Observable<AssignMap> {
     // const mapId = (this.window.parent as any).frommap_getSelectedBuilding();
-    // const wingId = (this.window.parent as any).frommap_getSelectedFloor();
-    // let url = `${assignMapUrl}/${mapId}`;
-    // if (wingId) {
-    //   url = `${url}/${wingId}`;
-    // }
+    // const wingId = (this.window.parent as any).frommap_getSelectedFloor() || 0;
+    // const url = `${assignMapUrl}/${mapId}/${wingId}`;
     const url = assignMapUrl;
-    return this.http.get<AssignMap>(url, httpOptions).pipe(
-      map((data: any) => new AssignMap(data))
+    return this.http.get(url, httpOptions).pipe(
+      map((data: { building: BuildingItem, availableMaps: MapItem[] }) => new AssignMap(data))
     );
   }
 }

@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {OrderModule} from 'ngx-order-pipe';
+import {TranslatePipe} from '../core/pipes/translate/translate.pipe';
 
 
 @NgModule({
@@ -9,9 +10,10 @@ import {OrderModule} from 'ngx-order-pipe';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    OrderModule
+    OrderModule,
+    TranslatePipe
   ],
-
+  declarations: [TranslatePipe]
 })
 export class SharedModule {
 }

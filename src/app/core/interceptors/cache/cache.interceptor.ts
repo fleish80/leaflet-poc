@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import {share, tap} from 'rxjs/operators';
+import {CacheRegistrationService} from '../../services/cache-registration/cache-registration.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,12 @@ export class CacheInterceptor implements HttpInterceptor {
 
   private cachedData = new Map<string, any>();
 
-  constructor() {
+  constructor(private cacheRegistrationService: CacheRegistrationService) {
   }
 
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (httpRequest.method !== 'GET') {
+    if (httpRequest.method !== 'GET' ||
+      !this.cacheRegistrationService.addedToCache(httpRequest.url)) {
       return next.handle(httpRequest);
     }
 
@@ -35,13 +37,16 @@ export class CacheInterceptor implements HttpInterceptor {
     /// If the request of going through for first time
     // then let the request proceed and cache the response
     const requestHandle = next.handle(httpRequest).pipe(tap((stateEvent) => {
-      if (stateEvent instanceof HttpResponse) {
-        this.cachedData.set(
-          httpRequest.urlWithParams,
-          stateEvent.clone()
-        );
-      }
-    }));
+        if (stateEvent instanceof HttpResponse) {
+          this.cachedData.set(
+            httpRequest.urlWithParams,
+            stateEvent.clone()
+          );
+        } else {
+          this.cachedData.delete(httpRequest.urlWithParams);
+        }
+      }),
+      share());
 
     // Meanwhile cache the request Observable to handle parallel request
     this.cachedData.set(httpRequest.urlWithParams, requestHandle);

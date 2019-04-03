@@ -3,9 +3,8 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { TranslatePipe } from './core/pipes/translate/translate.pipe';
 import {CacheInterceptor} from './core/interceptors/cache/cache.interceptor';
 
 export function windowFactory() {
@@ -14,8 +13,7 @@ export function windowFactory() {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TranslatePipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
