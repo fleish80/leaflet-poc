@@ -20,22 +20,16 @@ export class CacheInterceptor implements HttpInterceptor {
       return next.handle(httpRequest);
     }
 
-    // Also leave scope of resetting already cached data for a URI
     if (httpRequest.headers.get('reset-cache')) {
       this.cachedData.delete(httpRequest.urlWithParams);
     }
 
     const lastResponse = this.cachedData.get(httpRequest.urlWithParams);
     if (lastResponse) {
-      // In case of parallel requests to same URI,
-      // return the request already in progress
-      // otherwise return the last cached data
       return (lastResponse instanceof Observable)
         ? lastResponse : of(lastResponse.clone());
     }
 
-    /// If the request of going through for first time
-    // then let the request proceed and cache the response
     const requestHandle = next.handle(httpRequest).pipe(tap((stateEvent) => {
         if (stateEvent instanceof HttpResponse) {
           this.cachedData.set(
@@ -48,7 +42,6 @@ export class CacheInterceptor implements HttpInterceptor {
       }),
       share());
 
-    // Meanwhile cache the request Observable to handle parallel request
     this.cachedData.set(httpRequest.urlWithParams, requestHandle);
 
     return requestHandle;

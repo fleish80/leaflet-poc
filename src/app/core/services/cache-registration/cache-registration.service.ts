@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CacheRegistrationService {
 
-  constructor() { }
+  constructor() {
+  }
 
   private services = [];
 
