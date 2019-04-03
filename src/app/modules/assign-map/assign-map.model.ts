@@ -9,12 +9,10 @@ export class AssignMap {
 
   buildingList: BuildingList;
   mapList: MapList;
-  // buildMapIdsList: string[];
 
-  constructor(data: { building: BuildingItem, availableMaps: MapItem[] }, noHierarchyKey: string) {
-    // this.buildingItem = data.building;
+  constructor(data: { building: BuildingItem, availableMaps: MapItem[] }) {
     const buildMapIdsList: string[] = this.getBuildMapIdsList(data.building);
-    this.mapList = new MapList(data.availableMaps, buildMapIdsList, noHierarchyKey);
+    this.mapList = new MapList(data.availableMaps, buildMapIdsList);
     this.buildingList = new BuildingList(data.building, buildMapIdsList);
   }
 

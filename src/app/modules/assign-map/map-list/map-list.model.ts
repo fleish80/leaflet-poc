@@ -12,10 +12,10 @@ export class MapList {
   gatewayGroupNodes: TreeNode[];
   hierarchyNodes: TreeNode[];
 
-  constructor(mapItems: MapItem[], buildMapIdsList: string[], noHierarchyKey: string) {
+  constructor(mapItems: MapItem[], buildMapIdsList: string[]) {
     this.setMapItems(mapItems, buildMapIdsList);
     this.setGatewayGroupNodes();
-    this.setHierarchyNodes(noHierarchyKey);
+    this.setHierarchyNodes();
   }
 
   private setMapItems(mapItems: MapItem[], buildMapIdsList: string[]) {
@@ -36,17 +36,18 @@ export class MapList {
     this.gatewayGroupNodes = Array.from(gatewayGroupNodeMap.values());
   }
 
-  private setHierarchyNodes(noHierarchyKey: string) {
+  private setHierarchyNodes() {
     const hierarchyNodesMap: Map<string, TreeNode> = new Map<string, TreeNode>();
     this.mapItems.forEach((wingMapItem: WingMapItem, index: number) => {
-      const hierarchyName = wingMapItem.hierarchy || noHierarchyKey;
+      const hierarchyName = wingMapItem.hierarchy || '';
       const hierarchies = hierarchyName.split('>');
 
       let previousNode;
       hierarchies.forEach((hierarchy: string, indexHierarchies: number) => {
         if (indexHierarchies === 0) {
           if (!hierarchyNodesMap.has(hierarchy)) {
-            hierarchyNodesMap.set(hierarchy, {id: `${treeNodeIdPrefix}${index}-${indexHierarchies}`, nodeName: hierarchy, children: []});
+            hierarchyNodesMap.set(
+              hierarchy, {id: `${treeNodeIdPrefix}${index}-${indexHierarchies}`, nodeName: hierarchy, key: 'no_hierarchy', children: []});
           }
           previousNode = hierarchyNodesMap.get(hierarchy);
         } else {

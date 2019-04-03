@@ -12,7 +12,8 @@
           {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
         </mat-icon>
       </button>
-      <label [for]="node.id" class="cdk-nested-tree-node__text">{{node.nodeName}}</label>
+      <label *ngIf="node.nodeName" [for]="node.id" class="cdk-nested-tree-node__text">{{node.nodeName}}</label>
+      <label *ngIf="!node.nodeName" [for]="node.id" class="cdk-nested-tree-node__text">{{node.key | trans | async}}</label>
     </div>
     <ng-container cdkTreeNodeOutlet></ng-container>
   </cdk-nested-tree-node>

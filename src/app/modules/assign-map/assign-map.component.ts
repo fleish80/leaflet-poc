@@ -16,6 +16,10 @@ export class AssignMapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.assignMap$ = this.assignMapService.get();
+    this.assignMap$ = this.assignMapService.loadCampusData();
+  }
+
+  removeMap(mapStringId: string) {
+    this.assignMap$ = this.assignMapService.removeMap(mapStringId);
   }
 }
