@@ -123,7 +123,7 @@
     {
       "className": ".KeyValueItem",
       "key": "by_hierarchy",
-      "value": "By Hierarchy"
+      "value": "Hierarchy"
     },
     {
       "className": ".KeyValueItem",
@@ -188,7 +188,7 @@
     {
       "className": ".KeyValueItem",
       "key": "by_gateway_group",
-      "value": "By Gateway Group"
+      "value": "Gateway Group"
     },
     {
       "className": ".KeyValueItem",
@@ -222,7 +222,11 @@
     },
     {
       "key": "drag_available_map_here",
-      "value": "Drag available map here"
+      "value": "DRAG AVAILABLE MAP HERE"
+    },
+    {
+      "key": "sort_maps_by",
+      "value": "Sort maps by"
     }
   ]
 }

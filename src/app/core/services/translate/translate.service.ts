@@ -6,8 +6,8 @@ import {map} from 'rxjs/operators';
 import {CacheRegistrationService} from '../cache-registration/cache-registration.service';
 
 
-// const translateUrl = 'http://localhost/asset-manager-web/rest/translations-retriever-rest/get-translations';
-const translateUrl = '/assets/mocks/translate/translate.json';
+const translateUrl = '/asset-manager-web/rest/translations-retriever-rest/get-translations';
+// const translateUrl = '/assets/mocks/translate/translate.json';
 
 @Injectable({
   providedIn: 'root'

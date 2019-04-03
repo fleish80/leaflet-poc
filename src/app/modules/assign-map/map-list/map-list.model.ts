@@ -12,10 +12,10 @@ export class MapList {
   gatewayGroupNodes: TreeNode[];
   hierarchyNodes: TreeNode[];
 
-  constructor(mapItems: MapItem[], buildMapIdsList: string[]) {
+  constructor(mapItems: MapItem[], buildMapIdsList: string[], noHierarchyKey: string) {
     this.setMapItems(mapItems, buildMapIdsList);
     this.setGatewayGroupNodes();
-    this.setHierarchyNodes();
+    this.setHierarchyNodes(noHierarchyKey);
   }
 
   private setMapItems(mapItems: MapItem[], buildMapIdsList: string[]) {
@@ -36,10 +36,10 @@ export class MapList {
     this.gatewayGroupNodes = Array.from(gatewayGroupNodeMap.values());
   }
 
-  private setHierarchyNodes() {
+  private setHierarchyNodes(noHierarchyKey: string) {
     const hierarchyNodesMap: Map<string, TreeNode> = new Map<string, TreeNode>();
     this.mapItems.forEach((wingMapItem: WingMapItem, index: number) => {
-      const hierarchyName = wingMapItem.hierarchy || 'No Hierarchy';
+      const hierarchyName = wingMapItem.hierarchy || noHierarchyKey;
       const hierarchies = hierarchyName.split('>');
 
       let previousNode;

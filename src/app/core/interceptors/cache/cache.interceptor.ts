@@ -36,8 +36,6 @@ export class CacheInterceptor implements HttpInterceptor {
             httpRequest.urlWithParams,
             stateEvent.clone()
           );
-        } else {
-          this.cachedData.delete(httpRequest.urlWithParams);
         }
       }),
       share());

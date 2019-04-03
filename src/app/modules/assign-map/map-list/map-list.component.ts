@@ -9,15 +9,15 @@ import {TreeNode} from '../map-tree/tree-node.model';
 const SortingOptions = [
   {
     state: SortingState.Alphabetically,
-    text: 'Alphabetically'
+    key: 'alphabetically'
   },
   {
     state: SortingState.Hierarchy,
-    text: 'Hierarchy'
+    key: 'by_hierarchy'
   },
   {
     state: SortingState.GatewayGroup,
-    text: 'Gateway Group'
+    key: 'by_gateway_group'
   },
 ];
 

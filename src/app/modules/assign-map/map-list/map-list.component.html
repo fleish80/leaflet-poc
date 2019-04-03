@@ -4,10 +4,10 @@
     <h2 class="header__text">{{'map_create_campus_wizard_assign_maps_available_maps_title' | trans | async}}</h2>
   </header>
   <mat-form-field appearance="outline">
-    <mat-label>Sort maps by:</mat-label>
+    <mat-label>{{'sort_maps_by' | trans | async}}</mat-label>
     <mat-select [formControl]="sortCtrl">
       <mat-option *ngFor="let sortingOption of sortingOptions" [value]="sortingOption.state">
-        {{ sortingOption.text }}
+        {{ sortingOption.key | trans | async }}
       </mat-option>
     </mat-select>
   </mat-form-field>
