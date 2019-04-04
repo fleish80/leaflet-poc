@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {SortingState} from './sorting-state.enum';
 import {FormControl} from '@angular/forms';
 import {mapListId, MapList} from './map-list.model';
@@ -30,6 +30,7 @@ const SortingOptions = [
 export class MapListComponent implements OnChanges, OnDestroy {
 
   @Input() mapList: MapList;
+  @Output() removeMap = new EventEmitter<string>()
   sortCtrl: FormControl;
   treeNodes: TreeNode[];
   sortingOptions = SortingOptions;
@@ -70,6 +71,7 @@ export class MapListComponent implements OnChanges, OnDestroy {
 
   drop(event: CdkDragDrop<any>) {
     console.log('dragged to map-list with id = ', event.previousContainer.id);
+    this.removeMap.emit(event.previousContainer.id);
   }
 
   /**
