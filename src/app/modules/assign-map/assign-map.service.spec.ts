@@ -38,7 +38,7 @@ fdescribe('AssignMapService', () => {
 
     it('should call data with correct url', inject([AssignMapService, HttpTestingController],
       (service: AssignMapService, controller: HttpTestingController) => {
-        service.loadCampusData().subscribe();
+        service.load().subscribe();
         const req = controller.expectOne(`${assignMapUrl}/load-campus-data/1/5`);
         req.flush({building: {items: []}, availableMaps: []});
         controller.verify();
@@ -46,10 +46,10 @@ fdescribe('AssignMapService', () => {
 
     it('should return an Observable of AssignMap', inject([AssignMapService, HttpTestingController],
       (service: AssignMapService, controller: HttpTestingController) => {
-        service.loadCampusData().subscribe((value => {
+        service.load().subscribe(value => {
           expect(value).toBeDefined();
           expect(value instanceof AssignMap).toBeTruthy();
-        }));
+        });
       }));
   });
 
@@ -57,7 +57,7 @@ fdescribe('AssignMapService', () => {
 
     it('should call with correct url', inject([AssignMapService, HttpTestingController],
       (service: AssignMapService, controller: HttpTestingController) => {
-        service.removeMap('mapId').subscribe();
+        service.remove('mapId').subscribe();
         const req = controller.expectOne(`${assignMapUrl}/remove-map/mapId`);
         req.flush({building: {items: []}, availableMaps: []});
         controller.verify();
@@ -65,10 +65,29 @@ fdescribe('AssignMapService', () => {
 
     it('should return an Observable of AssignMap', inject([AssignMapService, HttpTestingController],
       (service: AssignMapService, controller: HttpTestingController) => {
-        service.removeMap('mapId').subscribe((value => {
+        service.remove('mapId').subscribe(value => {
           expect(value).toBeDefined();
           expect(value instanceof AssignMap).toBeTruthy();
-        }));
+        });
+      }));
+  });
+
+  describe('assign map', () => {
+
+    it('should call with correct url', inject([AssignMapService, HttpTestingController],
+      (service: AssignMapService, controller: HttpTestingController) => {
+        service.assign('mapId', 'wingId', true).subscribe();
+        const req = controller.expectOne(`${assignMapUrl}/assign-map/mapId/wingId/1`);
+        req.flush({building: {items: []}, availableMaps: []});
+        controller.verify();
+      }));
+
+    it('should return an Observable of AssignMap', inject([AssignMapService, HttpTestingController],
+      (service: AssignMapService, controller: HttpTestingController) => {
+        service.assign('mapId', 'wingId', true).subscribe(value => {
+          expect(value).toBeDefined();
+          expect(value instanceof AssignMap).toBeTruthy();
+        });
       }));
   });
 });

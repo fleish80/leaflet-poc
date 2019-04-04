@@ -19,7 +19,7 @@ export class AssignMapService {
   /**
    * Retrieves all needed base data to display the assign map details
    */
-  loadCampusData(): Observable<AssignMap> {
+  load(): Observable<AssignMap> {
     const parent = this.window.parent as any;
     const editedCampus = parent.frommap_getEditedCampus();
     const selectedCampus = parent.frommap_getSelectedBuilding();
@@ -31,12 +31,21 @@ export class AssignMapService {
 
   /**
    * Moves map from building to maps list and retrieves the all needed base data to display the assign map details
-   * @param mapIdString - map id which will be moved from building to maps list
+   * @param mapId - map id which will be moved from building to maps list
    */
-  removeMap(mapIdString: string): Observable<AssignMap> {
-    const url = `${assignMapUrl}/remove-map/${mapIdString}`;
+  remove(mapId: string): Observable<AssignMap> {
+    const url = `${assignMapUrl}/remove-map/${mapId}`;
     return this.http.get(url).pipe(
       map((data: { building: BuildingItem, availableMaps: MapItem[] }) => new AssignMap(data))
     );
   }
+
+  assign(mapId: string, wingId: string, fromList: boolean) {
+    const url = `${assignMapUrl}/assign-map/${mapId}/${wingId}/${fromList ? 1 : 0}`;
+    return this.http.get(url).pipe(
+      map((data: { building: BuildingItem, availableMaps: MapItem[] }) => new AssignMap(data))
+    );
+  }
+
+
 }
