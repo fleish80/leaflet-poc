@@ -6,8 +6,7 @@ import {map} from 'rxjs/operators';
 import {CacheRegistrationService} from '../cache-registration/cache-registration.service';
 
 
-const translateUrl = '/asset-manager-web/rest/translations-retriever-rest/get-translations';
-// const translateUrl = '/assets/mocks/translate/translate.json';
+export const translateUrl = '/asset-manager-web/rest/translations-retriever-rest';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +14,25 @@ const translateUrl = '/asset-manager-web/rest/translations-retriever-rest/get-tr
 export class TranslateService {
 
   constructor(private http: HttpClient, private cacheRegistrationService: CacheRegistrationService) {
-    cacheRegistrationService.addToCache(translateUrl);
+    cacheRegistrationService.addToCache(`${translateUrl}/get-translations`);
   }
 
-  get(): Observable<Map<string, string>> {
-    return this.http.get(translateUrl).pipe(
+  private getTranslations(): Observable<Map<string, string>> {
+    const url = `${translateUrl}/get-translations`;
+    return this.http.get(url).pipe(
       map((data: { translations: Translate[] }) =>
         new Map<string, string>(data.translations.map((translate: Translate) => ([translate.key, translate.value] as [string, string])))
       ));
+  }
+
+  getTranslation(key: string): Observable<string> {
+    return this.getTranslations().pipe(
+      map((translateMap: Map<string, string>) => {
+        let res = key;
+        if (translateMap.has(key)) {
+          res = translateMap.get(key);
+        }
+        return res;
+      }));
   }
 }
