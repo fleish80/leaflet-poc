@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {OrderModule} from 'ngx-order-pipe';
 import {TranslatePipe} from '../core/pipes/translate/translate.pipe';
+import {SpinnerDirective} from '../core/directives/spinner.directive';
 
 
 @NgModule({
@@ -11,9 +12,10 @@ import {TranslatePipe} from '../core/pipes/translate/translate.pipe';
     FormsModule,
     ReactiveFormsModule,
     OrderModule,
-    TranslatePipe
+    TranslatePipe,
+    SpinnerDirective
   ],
-  declarations: [TranslatePipe]
+  declarations: [TranslatePipe, SpinnerDirective]
 })
 export class SharedModule {
 }

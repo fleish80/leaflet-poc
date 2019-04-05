@@ -1,8 +1,4 @@
-<section class="assign-map" *ngIf="assignMap$ | async as assignMap; else loading">
+<section class="assign-map" [mvSpinner]="true">
   <mv-building-list class="assign-map__wrapper" [buildingList]="assignMap?.buildingList" (assign)="assign($event)"></mv-building-list>
   <mv-map-list class="assign-map__wrapper" [mapList]="assignMap?.mapList" (remove)="remove($event)"></mv-map-list>
 </section>
-
-<ng-template #loading>
-  <mat-spinner></mat-spinner>
-</ng-template>

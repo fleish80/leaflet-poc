@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CacheInterceptor} from './core/interceptors/cache/cache.interceptor';
 import {TranslatePipe} from './core/pipes/translate/translate.pipe';
+import { SpinnerDirective } from './core/directives/spinner.directive';
 
 export function windowFactory() {
   return window;
@@ -14,7 +15,8 @@ export function windowFactory() {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
