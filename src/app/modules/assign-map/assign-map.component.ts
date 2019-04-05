@@ -2,6 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AssignMap} from './assign-map.model';
 import {AssignMapService} from './assign-map.service';
+import {BuildingItem} from '../../core/models/items/building.item';
+import {MapItem} from './map-item/map-item.model';
 
 @Component({
   selector: 'mv-assign-map',
@@ -19,11 +21,11 @@ export class AssignMapComponent implements OnInit {
     this.assignMap$ = this.assignMapService.load();
   }
 
-  removeMap(mapId: string) {
+  remove(mapId: string) {
     this.assignMap$ = this.assignMapService.remove(mapId);
   }
 
-  assignMap(mapId, wingId, formList) {
-    this.assignMap$ = this.assignMapService.assign(mapId, wingId, formList);
+  assign({mapId, wingId, fromList}: { mapId: string, wingId: string, fromList: boolean }) {
+    this.assignMap$ = this.assignMapService.assign(mapId, wingId, fromList);
   }
 }

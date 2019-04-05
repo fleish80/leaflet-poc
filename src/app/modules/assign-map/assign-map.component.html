@@ -1,6 +1,6 @@
 <section class="assign-map" *ngIf="assignMap$ | async as assignMap; else loading">
-  <mv-building-list class="assign-map__wrapper" [buildingList]="assignMap?.buildingList"></mv-building-list>
-  <mv-map-list class="assign-map__wrapper" [mapList]="assignMap?.mapList" (removeMap)="removeMap($event)"></mv-map-list>
+  <mv-building-list class="assign-map__wrapper" [buildingList]="assignMap?.buildingList" (assign)="assign($event)"></mv-building-list>
+  <mv-map-list class="assign-map__wrapper" [mapList]="assignMap?.mapList" (remove)="remove($event)"></mv-map-list>
 </section>
 
 <ng-template #loading>

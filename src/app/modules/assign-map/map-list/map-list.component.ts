@@ -30,7 +30,7 @@ const SortingOptions = [
 export class MapListComponent implements OnChanges, OnDestroy {
 
   @Input() mapList: MapList;
-  @Output() removeMap = new EventEmitter<string>()
+  @Output() remove = new EventEmitter<string>()
   sortCtrl: FormControl;
   treeNodes: TreeNode[];
   sortingOptions = SortingOptions;
@@ -71,7 +71,7 @@ export class MapListComponent implements OnChanges, OnDestroy {
 
   drop(event: CdkDragDrop<any>) {
     console.log('dragged to map-list with id = ', event.previousContainer.id);
-    this.removeMap.emit(event.previousContainer.id);
+    this.remove.emit(event.previousContainer.id);
   }
 
   /**
