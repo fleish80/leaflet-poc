@@ -1,4 +1,4 @@
-<section class="assign-map" [mvSpinner]="true">
-  <mv-building-list class="assign-map__wrapper" [buildingList]="assignMap?.buildingList" (assign)="assign($event)"></mv-building-list>
-  <mv-map-list class="assign-map__wrapper" [mapList]="assignMap?.mapList" (remove)="remove($event)"></mv-map-list>
+<section class="assign-map">
+  <mv-building-list class="assign-map__wrapper" *ngIf="assignMap?.buildingList" [buildingList]="assignMap?.buildingList" (assign)="assign($event)"></mv-building-list>
+  <mv-map-list class="assign-map__wrapper" *ngIf="assignMap?.mapList" [mapList]="assignMap?.mapList" (remove)="remove($event)"></mv-map-list>
 </section>

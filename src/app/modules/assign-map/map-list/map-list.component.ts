@@ -41,8 +41,8 @@ export class MapListComponent implements OnChanges, OnDestroy {
   constructor() {
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes.mapList && (changes.mapList.previousValue !== changes.mapList.currentValue)) {
+  ngOnChanges({mapList}: SimpleChanges) {
+    if (this.mapList && mapList && (mapList.previousValue !== mapList.currentValue)) {
       this.treeNodesMap = new Map<SortingState, TreeNode[] | null>([
         [SortingState.Alphabetically, null],
         [SortingState.Hierarchy, this.mapList.hierarchyNodes],
