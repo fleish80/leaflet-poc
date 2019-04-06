@@ -3,7 +3,8 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {OrderModule} from 'ngx-order-pipe';
 import {TranslatePipe} from '../core/pipes/translate/translate.pipe';
-import {SpinnerDirective} from '../core/directives/spinner.directive';
+import {SpinnerDirective} from '../core/directives/spinner/spinner.directive';
+import { SpinnerModule } from '../modules/spinner/spinner.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {SpinnerDirective} from '../core/directives/spinner.directive';
     ReactiveFormsModule,
     OrderModule,
     TranslatePipe,
-    SpinnerDirective
+    SpinnerDirective,
+    SpinnerModule
   ],
   declarations: [TranslatePipe, SpinnerDirective]
 })

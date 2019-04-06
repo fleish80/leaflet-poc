@@ -6,7 +6,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatProgressSpinnerModule,
-  MatSelectModule, MatTooltipModule
+  MatSelectModule, MatSpinner, MatTooltipModule
 } from '@angular/material';
 import {CdkTreeModule} from '@angular/cdk/tree';
 
@@ -24,7 +24,8 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     MatButtonModule,
     MatTooltipModule,
     MatCardModule
-  ]
+  ],
+  entryComponents: [MatSpinner]
 })
 export class MaterialModule {
 }

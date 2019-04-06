@@ -2,44 +2,50 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
 import {AssignMap} from './assign-map.model';
 import {AssignMapService} from './assign-map.service';
-import {finalize} from 'rxjs/operators';
+import {catchError, finalize} from 'rxjs/operators';
+import {of} from 'rxjs/internal/observable/of';
+import {tap} from 'rxjs/internal/operators/tap';
 
 @Component({
   selector: 'mv-assign-map',
   templateUrl: './assign-map.component.html',
   styleUrls: ['./assign-map.component.scss']
 })
-export class AssignMapComponent implements OnInit, OnDestroy {
+export class AssignMapComponent implements OnInit {
 
-  assignMap: AssignMap;
-  loading = false;
-  private subscription = new Subscription();
+  assignMap$: Observable<AssignMap>;
+  assignMapState: AssignMap = new AssignMap(null);
 
   constructor(private assignMapService: AssignMapService) {
   }
 
   ngOnInit() {
-    this.loading = true;
-    this.subscription.add(
-      this.assignMapService.load().pipe(finalize(() => this.loading = false))
-        .subscribe((assignMap: AssignMap) => this.assignMap = assignMap));
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.assignMap$ = this.assignMapService.load().pipe(
+      tap((assignMap: AssignMap) => this.assignMapState = assignMap),
+      catchError((error) => {
+        console.error(error);
+        return of(this.assignMapState);
+      })
+    );
   }
 
   remove(mapId: string) {
-    this.loading = true;
-    this.subscription.add(
-      this.assignMapService.remove(mapId).pipe(finalize(() => this.loading = false))
-        .subscribe((assignMap: AssignMap) => this.assignMap = assignMap));
+    this.assignMap$ = this.assignMapService.remove(mapId).pipe(
+      tap((assignMap: AssignMap) => this.assignMapState = assignMap),
+      catchError((error) => {
+        console.error(error);
+        return of(this.assignMapState);
+      })
+    );
   }
 
   assign({mapId, wingId, fromList}: { mapId: string, wingId: string, fromList: boolean }) {
-    this.loading = true;
-    this.subscription.add(
-      this.assignMapService.assign(mapId, wingId, fromList).pipe(finalize(() => this.loading = false))
-        .subscribe((assignMap: AssignMap) => this.assignMap = assignMap));
+    this.assignMap$ = this.assignMapService.assign(mapId, wingId, fromList).pipe(
+      tap((assignMap: AssignMap) => this.assignMapState = assignMap),
+      catchError((error) => {
+        console.error(error);
+        return of(this.assignMapState);
+      })
+    );
   }
 }

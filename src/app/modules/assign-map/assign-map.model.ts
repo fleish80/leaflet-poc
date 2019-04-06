@@ -7,13 +7,15 @@ import {BuildingList} from './building-list/building-list';
 
 export class AssignMap {
 
-  buildingList: BuildingList;
-  mapList: MapList;
+  buildingList?: BuildingList;
+  mapList?: MapList;
 
   constructor(data: { building: BuildingItem, availableMaps: MapItem[] }) {
-    const buildMapIdsList: string[] = this.getBuildMapIdsList(data.building);
-    this.mapList = new MapList(data.availableMaps, buildMapIdsList);
-    this.buildingList = new BuildingList(data.building, buildMapIdsList);
+    if (data) {
+      const buildMapIdsList: string[] = this.getBuildMapIdsList(data.building);
+      this.mapList = new MapList(data.availableMaps, buildMapIdsList);
+      this.buildingList = new BuildingList(data.building, buildMapIdsList);
+    }
   }
 
   getBuildMapIdsList(buildingItem: BuildingItem): string[] {
