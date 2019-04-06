@@ -7,9 +7,12 @@ import {mapListId} from '../map-list/map-list.model';
 export class BuildingList {
 
   buildingItem: BuildingItem;
+  editedCampus: string;
+  selectedFloor: number;
 
-  constructor(buildingItem: BuildingItem, buildMapIdsList: string[]) {
+  constructor(buildingItem: BuildingItem, buildMapIdsList: string[], selectedFloor?: number) {
     this.buildingItem = buildingItem;
+    this.selectedFloor = selectedFloor;
     this.setDropListConnectedTo(buildMapIdsList);
   }
 

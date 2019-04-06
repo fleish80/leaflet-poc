@@ -10,11 +10,11 @@ export class AssignMap {
   buildingList?: BuildingList;
   mapList?: MapList;
 
-  constructor(data: { building: BuildingItem, availableMaps: MapItem[] }) {
+  constructor(data: { building: BuildingItem, availableMaps: MapItem[]}, selectedFloor?: number ) {
     if (data) {
       const buildMapIdsList: string[] = this.getBuildMapIdsList(data.building);
       this.mapList = new MapList(data.availableMaps, buildMapIdsList);
-      this.buildingList = new BuildingList(data.building, buildMapIdsList);
+      this.buildingList = new BuildingList(data.building, buildMapIdsList, selectedFloor);
     }
   }
 

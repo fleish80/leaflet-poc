@@ -5,6 +5,7 @@ import {OrderModule} from 'ngx-order-pipe';
 import {TranslatePipe} from '../core/pipes/translate/translate.pipe';
 import {SpinnerDirective} from '../core/directives/spinner/spinner.directive';
 import { SpinnerModule } from '../modules/spinner/spinner.module';
+import { ScrollDirective } from '../core/directives/scroll/scroll.directive';
 
 
 @NgModule({
@@ -15,9 +16,10 @@ import { SpinnerModule } from '../modules/spinner/spinner.module';
     OrderModule,
     TranslatePipe,
     SpinnerDirective,
-    SpinnerModule
+    SpinnerModule,
+    ScrollDirective
   ],
-  declarations: [TranslatePipe, SpinnerDirective]
+  declarations: [TranslatePipe, SpinnerDirective, ScrollDirective]
 })
 export class SharedModule {
 }

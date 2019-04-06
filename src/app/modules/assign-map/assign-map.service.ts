@@ -23,9 +23,14 @@ export class AssignMapService {
     const parent = this.window.parent as any;
     const editedCampus = parent.frommap_getEditedCampus();
     const selectedCampus = parent.frommap_getSelectedBuilding();
+    let selectedFloor = parent.frommap_getSelectedFloor();
+    if (selectedFloor) {
+      selectedFloor = parseInt(selectedFloor, 10);
+    }
     const url = `${assignMapUrl}/load-campus-data/${editedCampus}/${selectedCampus}`;
     return this.http.get(url).pipe(
-      map((data: { building: BuildingItem, availableMaps: MapItem[] }) => new AssignMap(data))
+      map((data: { building: BuildingItem, availableMaps: MapItem[] }) =>
+        new AssignMap(data, selectedFloor))
     );
   }
 
