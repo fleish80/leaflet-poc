@@ -18,7 +18,7 @@ export class MapTreeComponent implements OnChanges {
   dataSource: ArrayDataSource<TreeNode>;
   hasChild: (_: number, TreeNode) => boolean;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor() {
   }
 
   ngOnChanges(changes: SimpleChanges) {
