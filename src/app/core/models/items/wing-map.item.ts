@@ -5,5 +5,4 @@ export interface WingMapItem extends Item {
   gatewayGroup: string;
   engineId: string;
   hierarchy: string;
-  pendingDeletion: boolean;
 }

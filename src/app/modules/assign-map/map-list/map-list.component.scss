@@ -58,3 +58,7 @@
     padding-right: 5px;
   }
 }
+
+::ng-deep .mat-select-panel {
+  margin-top: 25px;
+}

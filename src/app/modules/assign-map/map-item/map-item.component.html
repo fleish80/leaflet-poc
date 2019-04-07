@@ -1,8 +1,36 @@
 <section class="map-item" [id]="mapItem.id" cdkDropList [cdkDropListConnectedTo]="mapItem.cdkDropListConnectedTo">
-  <button class="cdk-drag__btn" cdkDrag>
+  <button class="cdk-drag__btn" cdkDrag
+          (mouseenter)="op1.show($event)" (mouseleave)="op1.hide()"
+          (focus)="op1.show($event)" (blur)="op1.hide()">
     <span class="cdk-drag__btn__wrapper">
       <span class="cdk-drag__text">{{mapItem.mapName}}</span>
       <i class="cdk-drag__indicator-icon"></i>
     </span>
   </button>
+  <p-overlayPanel #op1>
+    <header class="header">
+      <i class="header__icon"></i>
+      <h2 class="header__text">{{'map_create_campus_wizard_assign_maps_map_details' | trans | async}}</h2>
+    </header>
+    <ul>
+      <li>
+        <span>{{'map_create_campus_wizard_assign_maps_map_name' | trans | async}}</span>
+        <span>{{mapItem.mapName}}</span>
+      </li>
+      <li>
+        <span>{{'map_create_campus_wizard_assign_maps_engine_id' | trans | async}}</span>
+        <span>{{mapItem.engineId}}</span>
+      </li>
+      <li>
+        <span>{{'map_create_campus_wizard_assign_maps_gw_group' | trans | async}}</span>
+        <span>{{mapItem.gatewayGroup}}</span>
+      </li>
+      <li>
+        <span>{{'map_create_campus_wizard_assign_maps_engine_hierarchy' | trans | async}}</span>
+        <span>{{mapItem.hierarchy}}</span>
+      </li>
+    </ul>
+  </p-overlayPanel>
 </section>
+
+

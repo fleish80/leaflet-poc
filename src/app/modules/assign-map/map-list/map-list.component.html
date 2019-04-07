@@ -5,7 +5,7 @@
   </header>
   <mat-form-field appearance="outline">
     <mat-label>{{'sort_maps_by' | trans | async}}</mat-label>
-    <mat-select [formControl]="sortCtrl">
+    <mat-select [formControl]="sortCtrl" disableOptionCentering>
       <mat-option *ngFor="let sortingOption of sortingOptions" [value]="sortingOption.state">
         {{ sortingOption.key | trans | async }}
       </mat-option>
