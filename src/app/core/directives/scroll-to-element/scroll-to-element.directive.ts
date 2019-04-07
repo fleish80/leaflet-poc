@@ -7,8 +7,7 @@ export class ScrollToElementDirective implements OnChanges {
 
   @Input('mvScrollToElement') scroll: boolean;
 
-  constructor(private elementRef: ElementRef, @Inject('window') private window: Window, private changeDetectorRef: ChangeDetectorRef
-  ) {
+  constructor(private elementRef: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnChanges({scroll}: SimpleChanges): void {
