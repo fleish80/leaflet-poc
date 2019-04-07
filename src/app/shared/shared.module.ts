@@ -5,7 +5,7 @@ import {OrderModule} from 'ngx-order-pipe';
 import {TranslatePipe} from '../core/pipes/translate/translate.pipe';
 import {SpinnerDirective} from '../core/directives/spinner/spinner.directive';
 import { SpinnerModule } from '../modules/spinner/spinner.module';
-import { ScrollDirective } from '../core/directives/scroll/scroll.directive';
+import { ScrollToElementDirective } from '../core/directives/scroll-to-element/scroll-to-element.directive';
 
 
 @NgModule({
@@ -17,9 +17,9 @@ import { ScrollDirective } from '../core/directives/scroll/scroll.directive';
     TranslatePipe,
     SpinnerDirective,
     SpinnerModule,
-    ScrollDirective
+    ScrollToElementDirective
   ],
-  declarations: [TranslatePipe, SpinnerDirective, ScrollDirective]
+  declarations: [TranslatePipe, SpinnerDirective, ScrollToElementDirective]
 })
 export class SharedModule {
 }

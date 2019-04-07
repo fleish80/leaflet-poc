@@ -30,7 +30,7 @@ const SortingOptions = [
 export class MapListComponent implements OnChanges, OnDestroy {
 
   @Input() mapList: MapList;
-  @Output() remove = new EventEmitter<string>()
+  @Output() remove = new EventEmitter<string>();
   sortCtrl: FormControl;
   treeNodes: TreeNode[];
   sortingOptions = SortingOptions;

@@ -5,6 +5,7 @@ import {AssignMapService} from './assign-map.service';
 import {catchError, finalize} from 'rxjs/operators';
 import {of} from 'rxjs/internal/observable/of';
 import {tap} from 'rxjs/internal/operators/tap';
+import {SortingState} from './map-list/sorting-state.enum';
 
 @Component({
   selector: 'mv-assign-map',
@@ -14,7 +15,7 @@ import {tap} from 'rxjs/internal/operators/tap';
 export class AssignMapComponent implements OnInit {
 
   assignMap$: Observable<AssignMap>;
-  assignMapState: AssignMap = new AssignMap(null);
+  assignMapState: AssignMap = new AssignMap();
 
   constructor(private assignMapService: AssignMapService) {
   }
@@ -48,4 +49,5 @@ export class AssignMapComponent implements OnInit {
       })
     );
   }
+
 }

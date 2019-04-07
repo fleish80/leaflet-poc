@@ -10,7 +10,7 @@ export class BuildingList {
   editedCampus: string;
   selectedFloor: number;
 
-  constructor(buildingItem: BuildingItem, buildMapIdsList: string[], selectedFloor?: number) {
+  constructor(buildingItem: BuildingItem, buildMapIdsList: string[], selectedFloor: number) {
     this.buildingItem = buildingItem;
     this.selectedFloor = selectedFloor;
     this.setDropListConnectedTo(buildMapIdsList);
