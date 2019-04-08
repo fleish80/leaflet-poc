@@ -7,6 +7,9 @@ import {BuildingItem} from '../../core/models/items/building.item';
 import {MapItem} from './map-item/map-item.model';
 
 export const assignMapUrl = '/asset-manager-web/rest/assign-map-rest';
+export const loadUrl = 'load-campus-data';
+export const removeUrl = 'remove-map';
+export const assignUrl = 'assign-map';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +32,7 @@ export class AssignMapService {
     if (selectedFloor) {
       selectedFloor = parseInt(selectedFloor, 10);
     }
-    const url = `${assignMapUrl}/load-campus-data/${editedCampus}/${selectedCampus}`;
+    const url = `${assignMapUrl}/${loadUrl}/${editedCampus}/${selectedCampus}`;
     return this.http.get(url).pipe(
       map((data: { building: BuildingItem, availableMaps: MapItem[] }) =>
         new AssignMap(data, selectedFloor))
@@ -45,7 +48,7 @@ export class AssignMapService {
     if (selectedFloor) {
       selectedFloor = parseInt(selectedFloor, 10);
     }
-    const url = `${assignMapUrl}/remove-map/${mapId}`;
+    const url = `${assignMapUrl}/${removeUrl}/${mapId}`;
     return this.http.get(url).pipe(
       map((data: { building: BuildingItem, availableMaps: MapItem[] }) => new AssignMap(data, selectedFloor))
     );
@@ -56,7 +59,7 @@ export class AssignMapService {
     if (selectedFloor) {
       selectedFloor = parseInt(selectedFloor, 10);
     }
-    const url = `${assignMapUrl}/assign-map/${mapId}/${wingId}/${fromList ? 1 : 0}`;
+    const url = `${assignMapUrl}/${assignUrl}/${mapId}/${wingId}/${fromList ? 1 : 0}`;
     return this.http.get(url).pipe(
       map((data: { building: BuildingItem, availableMaps: MapItem[] }) => new AssignMap(data, selectedFloor))
     );

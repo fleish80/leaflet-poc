@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CdkDragDrop} from '@angular/cdk/drag-drop';
 import {BuildingList} from './building-list';
 import {mapListId} from '../map-list/map-list.model';
@@ -6,7 +6,8 @@ import {mapListId} from '../map-list/map-list.model';
 @Component({
   selector: 'mv-building-list',
   templateUrl: './building-list.component.html',
-  styleUrls: ['./building-list.component.scss']
+  styleUrls: ['./building-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BuildingListComponent implements OnInit {
 

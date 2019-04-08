@@ -4,12 +4,18 @@ import {AssignMapService, assignMapUrl} from './assign-map.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {AssignMap} from './assign-map.model';
 
-fdescribe('AssignMapService', () => {
+describe('AssignMapService', () => {
 
   let windowMock: Window;
 
   beforeEach(() => {
-    windowMock = {parent: jasmine.createSpyObj(['frommap_getEditedCampus', 'frommap_getSelectedBuilding'])} as any;
+    windowMock = {
+      parent: jasmine.createSpyObj([
+        'frommap_getEditedCampus',
+        'frommap_getSelectedBuilding',
+        'frommap_getSelectedFloor'
+      ])
+    } as any;
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
@@ -34,6 +40,7 @@ fdescribe('AssignMapService', () => {
       parent = windowMock.parent as any;
       parent.frommap_getEditedCampus.and.returnValue(1);
       parent.frommap_getSelectedBuilding.and.returnValue(5);
+      parent.frommap_getSelectedFloor.and.returnValue(3);
     });
 
     it('should call data with correct url', inject([AssignMapService, HttpTestingController],
