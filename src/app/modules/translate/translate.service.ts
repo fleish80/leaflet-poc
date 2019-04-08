@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Translate} from '../../models/tranlsate/translate.model';
+import {Translate} from '../../core/models/tranlsate/translate.model';
 import {map} from 'rxjs/operators';
-import {CacheRegistrationService} from '../cache-registration/cache-registration.service';
+import {CacheRegistrationService} from '../../core/services/cache-registration/cache-registration.service';
 
 
 export const translateUrl = '/asset-manager-web/rest/translations-retriever-rest';

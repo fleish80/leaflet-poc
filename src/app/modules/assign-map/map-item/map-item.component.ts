@@ -12,10 +12,20 @@ import {MapItem} from './map-item.model';
 export class MapItemComponent implements OnInit {
 
   @Input() mapItem: MapItem;
+  popupOpen = false;
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  onShow() {
+    this.popupOpen = true;
+  }
+
+  onHide() {
+    this.popupOpen = false;
+  }
+
 
 }
