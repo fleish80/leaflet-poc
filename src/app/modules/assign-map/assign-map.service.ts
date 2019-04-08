@@ -23,9 +23,9 @@ export class AssignMapService {
    * Retrieves all needed base data to display the assign map details
    */
   load(): Observable<AssignMap> {
-    const editedCampus = 1 || this.parent.frommap_getEditedCampus();
-    const selectedCampus = 1 || this.parent.frommap_getSelectedBuilding();
-    let selectedFloor = 1 || this.parent.frommap_getSelectedFloor();
+    const editedCampus = this.parent.frommap_getEditedCampus();
+    const selectedCampus = this.parent.frommap_getSelectedBuilding();
+    let selectedFloor = this.parent.frommap_getSelectedFloor();
     if (selectedFloor) {
       selectedFloor = parseInt(selectedFloor, 10);
     }

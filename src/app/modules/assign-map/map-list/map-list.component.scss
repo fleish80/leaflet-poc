@@ -1,11 +1,5 @@
 @import "../../../../assets/scss/mixins";
 
-:host {
-  ::ng-deep .mat-select-panel {
-    margin-top: 25px;
-  }
-}
-
 .map-list {
   border-radius: 3px;
   border: solid 1px #d7d7d7;
