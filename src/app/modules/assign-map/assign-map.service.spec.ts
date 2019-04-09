@@ -30,12 +30,12 @@ describe('AssignMapService', () => {
     });
   });
 
-  fit('should be created', () => {
+  it('should be created', () => {
     const service: AssignMapService = TestBed.get(AssignMapService);
     expect(service).toBeTruthy();
   });
 
-  fdescribe('load campus', () => {
+  describe('load campus', () => {
     let parent: any;
 
     beforeEach(() => {
@@ -45,14 +45,14 @@ describe('AssignMapService', () => {
       parent.frommap_getSelectedFloor.and.returnValue(3);
     });
 
-    fit('should call data with correct url', inject([AssignMapService, HttpTestingController],
+    it('should call data with correct url', inject([AssignMapService, HttpTestingController],
       (service: AssignMapService, controller: HttpTestingController) => {
         service.load().subscribe();
         controller.expectOne(`${assignMapUrl}/${loadUrl}/1/5`);
         controller.verify();
       }));
 
-    fit('should return an Observable of AssignMap', inject([AssignMapService, HttpTestingController],
+    it('should return an Observable of AssignMap', inject([AssignMapService, HttpTestingController],
       (service: AssignMapService, controller: HttpTestingController) => {
         service.load().subscribe(value => {
           expect(value).toBeDefined();
@@ -66,7 +66,7 @@ describe('AssignMapService', () => {
 
   describe('remove map', () => {
 
-    fit('should call with correct url', inject([AssignMapService, HttpTestingController],
+    it('should call with correct url', inject([AssignMapService, HttpTestingController],
       (service: AssignMapService, controller: HttpTestingController) => {
         service.remove('mapId').subscribe();
         const req = controller.expectOne(`${assignMapUrl}/${removeUrl}/mapId`);
@@ -74,7 +74,7 @@ describe('AssignMapService', () => {
         controller.verify();
       }));
 
-    fit('should return an Observable of AssignMap', inject([AssignMapService, HttpTestingController],
+    it('should return an Observable of AssignMap', inject([AssignMapService, HttpTestingController],
       (service: AssignMapService, controller: HttpTestingController) => {
         service.remove('mapId').subscribe(value => {
           expect(value).toBeDefined();
@@ -88,7 +88,7 @@ describe('AssignMapService', () => {
 
   describe('assign map', () => {
 
-    fit('should call with correct url', inject([AssignMapService, HttpTestingController],
+    it('should call with correct url', inject([AssignMapService, HttpTestingController],
       (service: AssignMapService, controller: HttpTestingController) => {
         service.assign('mapId', 'wingId', true).subscribe();
         const req = controller.expectOne(`${assignMapUrl}/${assignUrl}/mapId/wingId/1`);
@@ -96,7 +96,7 @@ describe('AssignMapService', () => {
         controller.verify();
       }));
 
-    fit('should return an Observable of AssignMap', inject([AssignMapService, HttpTestingController],
+    it('should return an Observable of AssignMap', inject([AssignMapService, HttpTestingController],
       (service: AssignMapService, controller: HttpTestingController) => {
         service.assign('mapId', 'wingId', true).subscribe(value => {
           expect(value).toBeDefined();

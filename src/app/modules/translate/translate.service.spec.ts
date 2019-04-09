@@ -31,7 +31,7 @@ describe('TranslateInterceptor', () => {
       controller.verify();
     }));
 
-  fit('should return a value', inject([TranslateService, HttpTestingController],
+  it('should return a value', inject([TranslateService, HttpTestingController],
     (service: TranslateService, controller: HttpTestingController) => {
       service.getTranslation('map_admin_buttons_copy_zone_tooltip').subscribe(value => {
         expect(value).toBe('Copy Selected Zone');
