@@ -17,7 +17,7 @@ describe('AssignMapService', () => {
         'frommap_getSelectedFloor'
       ])
     } as any;
-    assignMapData = require('../../../assets/mocks/assign-map/assign-map.json');
+    assignMapData = require('./assign-map.json');
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [

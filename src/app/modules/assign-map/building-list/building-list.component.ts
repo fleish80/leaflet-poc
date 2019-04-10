@@ -20,6 +20,11 @@ export class BuildingListComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Drop event, activated on dragging the map into drag zone
+   * @param event drag an drop
+   * @param wingId wing id
+   */
   drop(event: CdkDragDrop<any>, wingId: string) {
     const previousContainer = event.previousContainer;
     const mapId: string = previousContainer.id;
@@ -28,6 +33,9 @@ export class BuildingListComponent implements OnInit {
     this.assign.emit({mapId, wingId, fromList});
   }
 
+  /**
+   * Just needed to remove the cdk-drop-list-dragging class, does not do anything internally.
+   */
   exited() {
   }
 }

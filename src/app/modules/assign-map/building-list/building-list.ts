@@ -7,7 +7,6 @@ import {mapListId} from '../map-list/map-list.model';
 export class BuildingList {
 
   buildingItem: BuildingItem;
-  editedCampus: string;
   selectedFloor: number;
 
   constructor(buildingItem: BuildingItem, buildMapIdsList: string[], selectedFloor: number) {
@@ -16,6 +15,10 @@ export class BuildingList {
     this.setDropListConnectedTo(buildMapIdsList);
   }
 
+  /**
+   * Adds connected list into map item, neede for drag and drop
+   * @param buildMapIdsList ids to connect
+   */
   private setDropListConnectedTo(buildMapIdsList: string[]) {
     const dropListConnectedTo = [...buildMapIdsList, mapListId];
     (this.buildingItem.items as FloorItem[]).forEach(

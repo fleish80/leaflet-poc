@@ -1,0 +1,223 @@
+{
+  "mapItems": [
+    {
+      "id": "map1",
+      "mapName": "Floor 5",
+      "gatewayGroup": "Group1",
+      "engineId": "17_3_0",
+      "hierarchy": "Stanley R>IlanRamon2>Floor 5",
+      "cdkDropListConnectedTo": [
+        "id1",
+        "id2"
+      ]
+    },
+    {
+      "id": "map2",
+      "mapName": "Floor 6 HW",
+      "gatewayGroup": "Group1",
+      "engineId": "17_2_0",
+      "hierarchy": "Stanley R>IlanRamon2>Floor 6 HW",
+      "cdkDropListConnectedTo": [
+        "id1",
+        "id2"
+      ]
+    },
+    {
+      "id": "map3",
+      "mapName": "Floor 6 SW",
+      "gatewayGroup": "Group1",
+      "engineId": "17_1_0",
+      "hierarchy": "Stanley R>IlanRamon2>Floor 6 SW",
+      "cdkDropListConnectedTo": [
+        "id1",
+        "id2"
+      ]
+    },
+    {
+      "id": "map4",
+      "mapName": "Prototype MAP1",
+      "gatewayGroup": "Group2",
+      "engineId": "17_1_1",
+      "hierarchy": null,
+      "cdkDropListConnectedTo": [
+        "id1",
+        "id2"
+      ]
+    },
+    {
+      "id": "map5",
+      "mapName": "A MAP1",
+      "gatewayGroup": "Group2",
+      "engineId": "17_1_2",
+      "hierarchy": null,
+      "cdkDropListConnectedTo": [
+        "id1",
+        "id2"
+      ]
+    }
+  ],
+  "gatewayGroupNodes": [
+    {
+      "id": "tree-node-0",
+      "nodeName": "Group1",
+      "children": [
+        {
+          "id": "map1",
+          "mapName": "Floor 5",
+          "gatewayGroup": "Group1",
+          "engineId": "17_3_0",
+          "hierarchy": "Stanley R>IlanRamon2>Floor 5",
+          "cdkDropListConnectedTo": [
+            "id1",
+            "id2"
+          ]
+        },
+        {
+          "id": "map2",
+          "mapName": "Floor 6 HW",
+          "gatewayGroup": "Group1",
+          "engineId": "17_2_0",
+          "hierarchy": "Stanley R>IlanRamon2>Floor 6 HW",
+          "cdkDropListConnectedTo": [
+            "id1",
+            "id2"
+          ]
+        },
+        {
+          "id": "map3",
+          "mapName": "Floor 6 SW",
+          "gatewayGroup": "Group1",
+          "engineId": "17_1_0",
+          "hierarchy": "Stanley R>IlanRamon2>Floor 6 SW",
+          "cdkDropListConnectedTo": [
+            "id1",
+            "id2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tree-node-3",
+      "nodeName": "Group2",
+      "children": [
+        {
+          "id": "map4",
+          "mapName": "Prototype MAP1",
+          "gatewayGroup": "Group2",
+          "engineId": "17_1_1",
+          "hierarchy": null,
+          "cdkDropListConnectedTo": [
+            "id1",
+            "id2"
+          ]
+        },
+        {
+          "id": "map5",
+          "mapName": "A MAP1",
+          "gatewayGroup": "Group2",
+          "engineId": "17_1_2",
+          "hierarchy": null,
+          "cdkDropListConnectedTo": [
+            "id1",
+            "id2"
+          ]
+        }
+      ]
+    }
+  ],
+  "hierarchyNodes": [
+    {
+      "id": "tree-node-0-0",
+      "nodeName": "Stanley R",
+      "key": "no_hierarchy",
+      "children": [
+        {
+          "id": "tree-node-0-1",
+          "nodeName": "IlanRamon2",
+          "children": [
+            {
+              "id": "tree-node-0-2",
+              "nodeName": "Floor 5",
+              "children": [
+                {
+                  "id": "map1",
+                  "mapName": "Floor 5",
+                  "gatewayGroup": "Group1",
+                  "engineId": "17_3_0",
+                  "hierarchy": "Stanley R>IlanRamon2>Floor 5",
+                  "cdkDropListConnectedTo": [
+                    "id1",
+                    "id2"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "tree-node-1-2",
+              "nodeName": "Floor 6 HW",
+              "children": [
+                {
+                  "id": "map2",
+                  "mapName": "Floor 6 HW",
+                  "gatewayGroup": "Group1",
+                  "engineId": "17_2_0",
+                  "hierarchy": "Stanley R>IlanRamon2>Floor 6 HW",
+                  "cdkDropListConnectedTo": [
+                    "id1",
+                    "id2"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "tree-node-2-2",
+              "nodeName": "Floor 6 SW",
+              "children": [
+                {
+                  "id": "map3",
+                  "mapName": "Floor 6 SW",
+                  "gatewayGroup": "Group1",
+                  "engineId": "17_1_0",
+                  "hierarchy": "Stanley R>IlanRamon2>Floor 6 SW",
+                  "cdkDropListConnectedTo": [
+                    "id1",
+                    "id2"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tree-node-3-0",
+      "nodeName": "",
+      "key": "no_hierarchy",
+      "children": [
+        {
+          "id": "map4",
+          "mapName": "Prototype MAP1",
+          "gatewayGroup": "Group2",
+          "engineId": "17_1_1",
+          "hierarchy": null,
+          "cdkDropListConnectedTo": [
+            "id1",
+            "id2"
+          ]
+        },
+        {
+          "id": "map5",
+          "mapName": "A MAP1",
+          "gatewayGroup": "Group2",
+          "engineId": "17_1_2",
+          "hierarchy": null,
+          "cdkDropListConnectedTo": [
+            "id1",
+            "id2"
+          ]
+        }
+      ]
+    }
+  ]
+}

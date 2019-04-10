@@ -1,13 +1,13 @@
-<section class="map-item" [id]="mapItem.id" cdkDropList [cdkDropListConnectedTo]="mapItem.cdkDropListConnectedTo">
-  <button class="cdk-drag__btn" cdkDrag [attr.aria-describedby]="'popup-' + mapItem.id"
+<section class="map-item" [id]="mapItem?.id" cdkDropList [cdkDropListConnectedTo]="mapItem?.cdkDropListConnectedTo">
+  <button class="cdk-drag__btn" cdkDrag [attr.aria-describedby]="'popup-' + mapItem?.id"
           (mouseenter)="popup.show($event)" (mouseleave)="popup.hide()" aria-haspopup="true" [attr.aria-expanded]="popupOpen"
           (focus)="popup.show($event)" (blur)="popup.hide()">
     <span class="cdk-drag__btn__wrapper">
-      <span class="cdk-drag__text">{{mapItem.mapName}}</span>
+      <span class="cdk-drag__text">{{mapItem?.mapName}}</span>
       <i class="cdk-drag__indicator-icon"></i>
     </span>
   </button>
-  <p-overlayPanel #popup id="{{'popup-' + mapItem.id}}" (onShow)="onShow()" (onHide)="onHide()">
+  <p-overlayPanel #popup id="{{'popup-' + mapItem?.id}}" (onShow)="onShow()" (onHide)="onHide()">
     <header class="header">
       <i class="header__icon"></i>
       <h2 class="header__text">{{'map_create_campus_wizard_assign_maps_map_details' | trans | async}}</h2>
@@ -15,19 +15,19 @@
     <ul class="map-item__list">
       <li>
         <span>{{'map_create_campus_wizard_assign_maps_map_name' | trans | async}}</span>
-        <span>{{mapItem.mapName}}</span>
+        <span>{{mapItem?.mapName}}</span>
       </li>
       <li>
         <span>{{'map_create_campus_wizard_assign_maps_engine_id' | trans | async}}</span>
-        <span>{{mapItem.engineId}}</span>
+        <span>{{mapItem?.engineId}}</span>
       </li>
       <li>
         <span>{{'map_create_campus_wizard_assign_maps_gw_group' | trans | async}}</span>
-        <span>{{mapItem.gatewayGroup}}</span>
+        <span>{{mapItem?.gatewayGroup}}</span>
       </li>
       <li>
         <span>{{'map_create_campus_wizard_assign_maps_engine_hierarchy' | trans | async}}</span>
-        <span>{{mapItem.hierarchy}}</span>
+        <span>{{mapItem?.hierarchy}}</span>
       </li>
     </ul>
   </p-overlayPanel>

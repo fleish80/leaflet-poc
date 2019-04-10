@@ -5,7 +5,7 @@ import {HttpClientTestingModule, HttpTestingController} from '@angular/common/ht
 import {HTTP_INTERCEPTORS, HttpClient, HttpHeaders} from '@angular/common/http';
 import {CacheRegistrationService} from '../../services/cache-registration/cache-registration.service';
 
-fdescribe('CacheInterceptor', () => {
+describe('CacheInterceptor', () => {
 
   let mockCacheRegistrationService;
 

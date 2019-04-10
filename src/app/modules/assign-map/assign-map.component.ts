@@ -1,11 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Observable, Subscription} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 import {AssignMap} from './assign-map.model';
 import {AssignMapService} from './assign-map.service';
-import {catchError, finalize} from 'rxjs/operators';
+import {catchError} from 'rxjs/operators';
 import {of} from 'rxjs/internal/observable/of';
 import {tap} from 'rxjs/internal/operators/tap';
-import {SortingState} from './map-list/sorting-state.enum';
 
 @Component({
   selector: 'mv-assign-map',

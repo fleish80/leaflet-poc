@@ -18,7 +18,7 @@ export class AssignMap {
     }
   }
 
-  getBuildMapIdsList(buildingItem: BuildingItem): string[] {
+  private getBuildMapIdsList(buildingItem: BuildingItem): string[] {
     const buildMapIdsList = (buildingItem.items as FloorItem[]).map(
       (floorItem: FloorItem) => {
         return (floorItem.items as WingItem[])

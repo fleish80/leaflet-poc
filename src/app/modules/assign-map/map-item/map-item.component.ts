@@ -1,6 +1,4 @@
-import {ChangeDetectionStrategy, Component, HostBinding, Input, OnInit} from '@angular/core';
-import {WingItem} from '../../../core/models/items/wing.item';
-import {WingMapItem} from '../../../core/models/items/wing-map.item';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {MapItem} from './map-item.model';
 
 @Component({
@@ -9,20 +7,21 @@ import {MapItem} from './map-item.model';
   styleUrls: ['./map-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MapItemComponent implements OnInit {
+export class MapItemComponent {
 
   @Input() mapItem: MapItem;
   popupOpen = false;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  /**
+   * Showes the popover
+   */
   onShow() {
     this.popupOpen = true;
   }
 
+  /**
+   * Hides the popover
+   */
   onHide() {
     this.popupOpen = false;
   }

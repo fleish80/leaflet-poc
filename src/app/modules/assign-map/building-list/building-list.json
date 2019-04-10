@@ -1,0 +1,77 @@
+{
+  "buildingName": "Building 1",
+  "id": "BUILDING_3",
+  "items": [
+    {
+      "floorName": "Floor 2",
+      "sequence": 4,
+      "id": "FLOOR_6",
+      "items": [
+        {
+          "wingName": "Wing 2",
+          "id": "WING_3,0",
+          "map": {
+            "id": "map6",
+            "mapName": "Floor 6_0",
+            "gatewayGroup": "Group1",
+            "engineId": "6_0",
+            "hierarchy": "Stanley R>IlanRamon2>Floor 6"
+          }
+        }
+      ]
+    },
+    {
+      "floorName": "Floor 1",
+      "sequence": 10,
+      "id": "FLOOR_4",
+      "items": [
+        {
+          "wingName": "Wing 1",
+          "id": "WING_11111",
+          "map": {
+            "id": "map7",
+            "mapName": "Floor 6_0",
+            "gatewayGroup": "Group1",
+            "engineId": "6_0",
+            "hierarchy": "Stanley R>IlanRamon2>Floor 6"
+          }
+        },
+        {
+          "wingName": "Wing 2",
+          "id": "WING_3,0",
+          "map": null
+        }
+      ]
+    },
+    {
+      "floorName": "Floor 3",
+      "sequence": 2,
+      "id": "FLOOR_8",
+      "items": [
+        {
+          "wingName": "Area 1",
+          "id": "WING_1,0",
+          "map": null
+        }
+      ]
+    },
+    {
+      "floorName": "Floor -1",
+      "sequence": 1,
+      "id": "FLOOR_43",
+      "items": [
+        {
+          "wingName": "Area 1",
+          "id": "WING_0,0",
+          "map": {
+            "id": "map9",
+            "mapName": "Floor 9_0",
+            "gatewayGroup": "Group1",
+            "engineId": "9_0",
+            "hierarchy": "Stanley R>IlanRamon2>Floor 6"
+          }
+        }
+      ]
+    }
+  ]
+}

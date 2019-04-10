@@ -3,7 +3,6 @@ import {AssignMapRoutingModule} from './assign-map-routing.module';
 import {AssignMapComponent} from './assign-map.component';
 import {SharedModule} from '../../shared/shared.module';
 import {MapListComponent} from './map-list/map-list.component';
-import {DragDropComponent} from './drag-drop/drag-drop.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {BuildingListComponent} from './building-list/building-list.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -23,7 +22,7 @@ import {OverlayPanelModule} from 'primeng/primeng';
 import {OrderModule} from 'ngx-order-pipe';
 
 @NgModule({
-  declarations: [AssignMapComponent, MapListComponent, DragDropComponent, BuildingListComponent, MapItemComponent, MapTreeComponent],
+  declarations: [AssignMapComponent, MapListComponent, BuildingListComponent, MapItemComponent, MapTreeComponent],
   imports: [
     SharedModule,
     AssignMapRoutingModule,

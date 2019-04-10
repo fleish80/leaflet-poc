@@ -1,0 +1,42 @@
+[
+  {
+    "id": "map1",
+    "mapName": "Floor 5",
+    "gatewayGroup": "Group1",
+    "engineId": "17_3_0",
+    "hierarchy": "Stanley R>IlanRamon2>Floor 5",
+    "cdkDropListConnectedTo": [ "id1", "id2" ]
+  },
+  {
+    "id": "map2",
+    "mapName": "Floor 6 HW",
+    "gatewayGroup": "Group1",
+    "engineId": "17_2_0",
+    "hierarchy": "Stanley R>IlanRamon2>Floor 6 HW",
+    "cdkDropListConnectedTo": [ "id1", "id2" ]
+  },
+  {
+    "id": "map3",
+    "mapName": "Floor 6 SW",
+    "gatewayGroup": "Group1",
+    "engineId": "17_1_0",
+    "hierarchy": "Stanley R>IlanRamon2>Floor 6 SW",
+    "cdkDropListConnectedTo": [ "id1", "id2" ]
+  },
+  {
+    "id": "map4",
+    "mapName": "Prototype MAP1",
+    "gatewayGroup": "Group2",
+    "engineId": "17_1_1",
+    "hierarchy": null,
+    "cdkDropListConnectedTo": [ "id1", "id2" ]
+  },
+  {
+    "id": "map5",
+    "mapName": "A MAP1",
+    "gatewayGroup": "Group2",
+    "engineId": "17_1_2",
+    "hierarchy": null,
+    "cdkDropListConnectedTo": [ "id1", "id2" ]
+  }
+]

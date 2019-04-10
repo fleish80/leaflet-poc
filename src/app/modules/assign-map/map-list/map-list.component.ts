@@ -57,7 +57,7 @@ export class MapListComponent implements OnChanges, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  setSortCtrl(sortingState: SortingState) {
+  private setSortCtrl(sortingState: SortingState) {
     this.sortCtrl = new FormControl(sortingState);
     this.subscription.add(
       this.sortCtrl.valueChanges.subscribe((ss: SortingState) => {
@@ -70,7 +70,6 @@ export class MapListComponent implements OnChanges, OnDestroy {
   }
 
   drop(event: CdkDragDrop<any>) {
-    console.log('dragged to map-list with id = ', event.previousContainer.id);
     this.remove.emit(event.previousContainer.id);
   }
 
