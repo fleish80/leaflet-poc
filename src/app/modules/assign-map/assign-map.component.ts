@@ -25,8 +25,7 @@ export class AssignMapComponent implements OnInit {
       catchError((error) => {
         console.error(error);
         return of(this.assignMapState);
-      })
-    );
+      }));
   }
 
   remove(mapId: string) {

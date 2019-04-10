@@ -1,0 +1,319 @@
+{
+  "mapList": {
+    "mapItems": [
+      {
+        "id": "map1",
+        "mapName": "Floor 5",
+        "gatewayGroup": "Group1",
+        "engineId": "17_3_0",
+        "hierarchy": "Stanley R>IlanRamon2>Floor 5",
+        "cdkDropListConnectedTo": [
+          "WING_3,0",
+          "WING_1,0"
+        ]
+      },
+      {
+        "id": "map2",
+        "mapName": "Floor 6 HW",
+        "gatewayGroup": "Group1",
+        "engineId": "17_2_0",
+        "hierarchy": "Stanley R>IlanRamon2>Floor 6 HW",
+        "cdkDropListConnectedTo": [
+          "WING_3,0",
+          "WING_1,0"
+        ]
+      },
+      {
+        "id": "map3",
+        "mapName": "Floor 6 SW",
+        "gatewayGroup": "Group1",
+        "engineId": "17_1_0",
+        "hierarchy": "Stanley R>IlanRamon2>Floor 6 SW",
+        "cdkDropListConnectedTo": [
+          "WING_3,0",
+          "WING_1,0"
+        ]
+      },
+      {
+        "id": "map4",
+        "mapName": "Prototype MAP1",
+        "gatewayGroup": "Group2",
+        "engineId": "17_1_1",
+        "hierarchy": null,
+        "cdkDropListConnectedTo": [
+          "WING_3,0",
+          "WING_1,0"
+        ]
+      },
+      {
+        "id": "map5",
+        "mapName": "A MAP1",
+        "gatewayGroup": "Group2",
+        "engineId": "17_1_2",
+        "hierarchy": null,
+        "cdkDropListConnectedTo": [
+          "WING_3,0",
+          "WING_1,0"
+        ]
+      }
+    ],
+    "gatewayGroupNodes": [
+      {
+        "id": "tree-node-0",
+        "nodeName": "Group1",
+        "children": [
+          {
+            "id": "map1",
+            "mapName": "Floor 5",
+            "gatewayGroup": "Group1",
+            "engineId": "17_3_0",
+            "hierarchy": "Stanley R>IlanRamon2>Floor 5",
+            "cdkDropListConnectedTo": [
+              "WING_3,0",
+              "WING_1,0"
+            ]
+          },
+          {
+            "id": "map2",
+            "mapName": "Floor 6 HW",
+            "gatewayGroup": "Group1",
+            "engineId": "17_2_0",
+            "hierarchy": "Stanley R>IlanRamon2>Floor 6 HW",
+            "cdkDropListConnectedTo": [
+              "WING_3,0",
+              "WING_1,0"
+            ]
+          },
+          {
+            "id": "map3",
+            "mapName": "Floor 6 SW",
+            "gatewayGroup": "Group1",
+            "engineId": "17_1_0",
+            "hierarchy": "Stanley R>IlanRamon2>Floor 6 SW",
+            "cdkDropListConnectedTo": [
+              "WING_3,0",
+              "WING_1,0"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tree-node-3",
+        "nodeName": "Group2",
+        "children": [
+          {
+            "id": "map4",
+            "mapName": "Prototype MAP1",
+            "gatewayGroup": "Group2",
+            "engineId": "17_1_1",
+            "hierarchy": null,
+            "cdkDropListConnectedTo": [
+              "WING_3,0",
+              "WING_1,0"
+            ]
+          },
+          {
+            "id": "map5",
+            "mapName": "A MAP1",
+            "gatewayGroup": "Group2",
+            "engineId": "17_1_2",
+            "hierarchy": null,
+            "cdkDropListConnectedTo": [
+              "WING_3,0",
+              "WING_1,0"
+            ]
+          }
+        ]
+      }
+    ],
+    "hierarchyNodes": [
+      {
+        "id": "tree-node-0-0",
+        "nodeName": "Stanley R",
+        "key": "no_hierarchy",
+        "children": [
+          {
+            "id": "tree-node-0-1",
+            "nodeName": "IlanRamon2",
+            "children": [
+              {
+                "id": "tree-node-0-2",
+                "nodeName": "Floor 5",
+                "children": [
+                  {
+                    "id": "map1",
+                    "mapName": "Floor 5",
+                    "gatewayGroup": "Group1",
+                    "engineId": "17_3_0",
+                    "hierarchy": "Stanley R>IlanRamon2>Floor 5",
+                    "cdkDropListConnectedTo": [
+                      "WING_3,0",
+                      "WING_1,0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "tree-node-1-2",
+                "nodeName": "Floor 6 HW",
+                "children": [
+                  {
+                    "id": "map2",
+                    "mapName": "Floor 6 HW",
+                    "gatewayGroup": "Group1",
+                    "engineId": "17_2_0",
+                    "hierarchy": "Stanley R>IlanRamon2>Floor 6 HW",
+                    "cdkDropListConnectedTo": [
+                      "WING_3,0",
+                      "WING_1,0"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "tree-node-2-2",
+                "nodeName": "Floor 6 SW",
+                "children": [
+                  {
+                    "id": "map3",
+                    "mapName": "Floor 6 SW",
+                    "gatewayGroup": "Group1",
+                    "engineId": "17_1_0",
+                    "hierarchy": "Stanley R>IlanRamon2>Floor 6 SW",
+                    "cdkDropListConnectedTo": [
+                      "WING_3,0",
+                      "WING_1,0"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tree-node-3-0",
+        "nodeName": "",
+        "key": "no_hierarchy",
+        "children": [
+          {
+            "id": "map4",
+            "mapName": "Prototype MAP1",
+            "gatewayGroup": "Group2",
+            "engineId": "17_1_1",
+            "hierarchy": null,
+            "cdkDropListConnectedTo": [
+              "WING_3,0",
+              "WING_1,0"
+            ]
+          },
+          {
+            "id": "map5",
+            "mapName": "A MAP1",
+            "gatewayGroup": "Group2",
+            "engineId": "17_1_2",
+            "hierarchy": null,
+            "cdkDropListConnectedTo": [
+              "WING_3,0",
+              "WING_1,0"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "buildingList": {
+    "buildingItem": {
+      "buildingName": "Building 1",
+      "id": "BUILDING_3",
+      "items": [
+        {
+          "floorName": "Floor 2",
+          "sequence": 4,
+          "id": "FLOOR_6",
+          "items": [
+            {
+              "wingName": "Wing 2",
+              "id": "WING_3,0",
+              "map": {
+                "id": "map6",
+                "mapName": "Floor 6_0",
+                "gatewayGroup": "Group1",
+                "engineId": "6_0",
+                "hierarchy": "Stanley R>IlanRamon2>Floor 6",
+                "cdkDropListConnectedTo": [
+                  "WING_3,0",
+                  "WING_1,0",
+                  "map-list"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "floorName": "Floor 1",
+          "sequence": 10,
+          "id": "FLOOR_4",
+          "items": [
+            {
+              "wingName": "Wing 1",
+              "id": "WING_11111",
+              "map": {
+                "id": "map7",
+                "mapName": "Floor 6_0",
+                "gatewayGroup": "Group1",
+                "engineId": "6_0",
+                "hierarchy": "Stanley R>IlanRamon2>Floor 6",
+                "cdkDropListConnectedTo": [
+                  "WING_3,0",
+                  "WING_1,0",
+                  "map-list"
+                ]
+              }
+            },
+            {
+              "wingName": "Wing 2",
+              "id": "WING_3,0",
+              "map": null
+            }
+          ]
+        },
+        {
+          "floorName": "Floor 3",
+          "sequence": 2,
+          "id": "FLOOR_8",
+          "items": [
+            {
+              "wingName": "Area 1",
+              "id": "WING_1,0",
+              "map": null
+            }
+          ]
+        },
+        {
+          "floorName": "Floor -1",
+          "sequence": 1,
+          "id": "FLOOR_43",
+          "items": [
+            {
+              "wingName": "Area 1",
+              "id": "WING_0,0",
+              "map": {
+                "id": "map9",
+                "mapName": "Floor 9_0",
+                "gatewayGroup": "Group1",
+                "engineId": "9_0",
+                "hierarchy": "Stanley R>IlanRamon2>Floor 6",
+                "cdkDropListConnectedTo": [
+                  "WING_3,0",
+                  "WING_1,0",
+                  "map-list"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
