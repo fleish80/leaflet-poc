@@ -40,6 +40,7 @@ import {OrderModule} from 'ngx-order-pipe';
     OverlayPanelModule,
     OrderModule
   ],
-  providers: [HttpClient]
+  providers: [HttpClient],
+  exports: [AssignMapComponent]
 })
 export class AssignMapModule { }

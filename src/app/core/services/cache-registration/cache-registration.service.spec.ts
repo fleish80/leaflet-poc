@@ -1,7 +1,5 @@
 import {inject, TestBed} from '@angular/core/testing';
-
 import {CacheRegistrationService} from './cache-registration.service';
-import {AssignMapService} from '../../../modules/assign-map/assign-map.service';
 
 fdescribe('CacheRegistrationService', () => {
 

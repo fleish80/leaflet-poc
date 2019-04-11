@@ -7,7 +7,7 @@
       <i class="cdk-drag__indicator-icon"></i>
     </span>
   </button>
-  <p-overlayPanel #popup id="{{'popup-' + mapItem?.id}}" (onShow)="onShow()" (onHide)="onHide()">
+  <p-overlayPanel #popup id="{{'popup-' + mapItem?.id}}" (onShow)="onShow()" (onHide)="onHide()" [hideTransitionOptions]="'0ms'" [showTransitionOptions]="'0ms'">
     <header class="header">
       <i class="header__icon"></i>
       <h2 class="header__text">{{'map_create_campus_wizard_assign_maps_map_details' | trans | async}}</h2>
