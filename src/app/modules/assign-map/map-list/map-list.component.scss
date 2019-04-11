@@ -9,7 +9,7 @@
 
   &.cdk-drop-list-dragging {
     border: dashed 2px #32b1bd;
-    height: calc(100% - 24px);
+    height: 100%;
 
     .header__text {
       color: #32b1bd;

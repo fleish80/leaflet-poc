@@ -59,7 +59,9 @@
 }
 
 .cdk-drag__text {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
 }
 
 .header {
@@ -105,6 +107,27 @@
         font-weight: 500;
       }
     }
+  }
+}
+
+.icon-info {
+  background-image: url('/assets/icons/assign-map/info.svg');
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 10px;
+  @include rtl() {
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+}
+
+.cdk-drag-preview {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border: solid 1px #32b1bd;
+  .cdk-drag__indicator-icon {
+    background-image: url('/assets/icons/assign-map/drag-indicator-draged.svg');
   }
 }
 

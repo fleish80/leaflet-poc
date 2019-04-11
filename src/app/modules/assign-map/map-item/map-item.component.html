@@ -1,13 +1,17 @@
 <section class="map-item" [id]="mapItem?.id" cdkDropList [cdkDropListConnectedTo]="mapItem?.cdkDropListConnectedTo">
-  <button class="cdk-drag__btn" cdkDrag [attr.aria-describedby]="'popup-' + mapItem?.id"
-          (mouseenter)="popup.show($event)" (mouseleave)="popup.hide()" aria-haspopup="true" [attr.aria-expanded]="popupOpen"
-          (focus)="popup.show($event)" (blur)="popup.hide()">
+  <button class="cdk-drag__btn" cdkDrag [attr.aria-describedby]="'popup-' + mapItem?.id">
     <span class="cdk-drag__btn__wrapper">
-      <span class="cdk-drag__text">{{mapItem?.mapName}}</span>
+      <span class="cdk-drag__text">
+      <i class="icon-info" tabindex="0" [attr.aria-lable]="'more_info' | trans | async"
+         [attr.aria-describedby]="'popup-' + mapItem?.id"
+         (mouseenter)="popup.show($event)" (mouseleave)="popup.hide()" aria-haspopup="true" [attr.aria-expanded]="popupOpen"
+         (focus)="popup.show($event)" (blur)="popup.hide()"></i>
+        {{mapItem?.mapName}}</span>
       <i class="cdk-drag__indicator-icon"></i>
     </span>
   </button>
-  <p-overlayPanel #popup id="{{'popup-' + mapItem?.id}}" (onShow)="onShow()" (onHide)="onHide()" [hideTransitionOptions]="'0ms'" [showTransitionOptions]="'0ms'">
+  <p-overlayPanel #popup id="{{'popup-' + mapItem?.id}}" (onShow)="onShow()" (onHide)="onHide()"
+                  [hideTransitionOptions]="'0ms'" [showTransitionOptions]="'0ms'">
     <header class="header">
       <i class="header__icon"></i>
       <h2 class="header__text">{{'map_create_campus_wizard_assign_maps_map_details' | trans | async}}</h2>
